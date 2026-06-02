@@ -3,13 +3,13 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #100f0f;
 }
 
 .hanken-grotesk {
   font-family: "Hanken Grotesk", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 486;
+  font-weight: 500;
   font-style: normal;
 }
 
@@ -25,7 +25,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #100f0f;
     --foreground: #ededed;
   }
 }
