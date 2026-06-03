@@ -7,6 +7,7 @@ import { Notification } from "./notification";
 import { Spotify } from "../personal/spotify";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../[ui]/tooltip";
 import { Play } from "@/icons/play-icon";
+import { Socials } from "../personal/social-buttons";
 
 export const Hero = () => {
   const [clicked, setClicked] = useState(false);
@@ -153,6 +154,10 @@ export const Hero = () => {
             <p>click to play music</p>
           </TooltipContent>
         </Tooltip>
+      </div>
+
+      <div>
+        <Socials />
       </div>
 
       {clicked && (

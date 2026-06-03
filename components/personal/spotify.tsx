@@ -21,7 +21,7 @@ export const Spotify = () => {
   };
 
   return (
-    <button
+    <div
       onClick={playMusic}
       onMouseOver={() => setisHovered(true)}
       onMouseOut={() => setisHovered(false)}
@@ -40,6 +40,6 @@ export const Spotify = () => {
         <p className="text-xs text-secondary">Ganga Ke Kinaare</p>
       )}
       <audio src="/audio/GKK.mp3" itemType="" muted ref={musicRef}></audio>
-    </button>
+    </div>
   );
 };
