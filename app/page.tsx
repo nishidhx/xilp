@@ -1,9 +1,10 @@
-import { Hero } from "@/components/hero";
-import { Navigation } from "@/components/Navigation";
+import { Hero } from "@/components/common/hero";
+import { Navigation } from "@/components/common/Navigation";
+import { Notification } from "@/components/common/notification";
 
 export default function Home() {
   return (
-    <div className="max-h-screen md:ml-auto md:mr-auto px-2 max-w-2xl">
+    <div className="min-h-screen mx-auto max-w-3xl px-4 pt-16">
         <Hero />
     </div>
   );

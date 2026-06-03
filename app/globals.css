@@ -3,6 +3,8 @@
 @plugin "@tailwindcss/typography";
 
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @font-face {
   font-family: 'Hanken Grotesk';
   src: url('/fonts/HankenGrotesk-Variable.ttf') format('truetype');
@@ -45,4 +47,33 @@ body {
 
 .font-hanken-grotesk-italic {
   font-family: 'Hanken Grotesk Italic', sans-serif;
+}
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+.animate-slideIn {
+  animation: slideIn 300ms ease-out forwards;
+}
+
+.animate-slideOut {
+  animation: slideOut 300ms ease-out forwards;
 }

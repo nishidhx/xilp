@@ -5,6 +5,8 @@ import Image from "next/image";
 import { useState } from "react";
 import { Notification } from "./notification";
 import { Spotify } from "../personal/spotify";
+import { Tooltip, TooltipContent, TooltipTrigger } from "../[ui]/tooltip";
+import { Play } from "@/icons/play-icon";
 
 export const Hero = () => {
   const [clicked, setClicked] = useState(false);
@@ -141,7 +143,16 @@ export const Hero = () => {
       <div className="mt-4 sm:mt-6 flex flex-row items-center justify-center sm:justify-start gap-3">
         <p className="text-secondary">I like building cool stuffs</p>
 
-        <Spotify />
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <button>
+              <Spotify />
+            </button>
+          </TooltipTrigger>
+          <TooltipContent>
+            <p>click to play music</p>
+          </TooltipContent>
+        </Tooltip>
       </div>
 
       {clicked && (
