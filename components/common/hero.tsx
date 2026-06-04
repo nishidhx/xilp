@@ -8,6 +8,7 @@ import { Spotify } from "../personal/spotify";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../[ui]/tooltip";
 import { Play } from "@/icons/play-icon";
 import { Socials } from "../personal/social-buttons";
+import { Container } from "./container";
 
 export const Hero = () => {
   const [clicked, setClicked] = useState(false);
@@ -95,7 +96,7 @@ export const Hero = () => {
   // );
 
   return (
-    <div className="mx-auto  w-full pt-12 md:max-w-3xl px-4">
+    <Container className="mx-auto  w-full pt-12 md:max-w-3xl px-4">
       <section className="flex flex-col sm:flex-row items-center sm:items-stretch gap-6 ">
         <div className="relative shrink-0">
           <Image
@@ -167,6 +168,6 @@ export const Hero = () => {
           icon={<Tick className="text-green-400" />}
         />
       )}
-    </div>
+    </Container>
   );
 };

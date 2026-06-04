@@ -1,9 +1,8 @@
+import { Container } from "@/components/common/container";
 
 
 export default function Resume() {
     return (
-        <div>
-            resume
-        </div>
+        <Container >d</Container>
     )
 }

@@ -4,12 +4,13 @@ import { Search } from "@/icons/search-icon";
 import { Moon, Sun } from "@/icons/theme-icon";
 import Link from "next/link";
 import { SerachBar } from "./search-bar";
+import { Container } from "./container";
 
 export const Navigation = ({}) => {
   const { currentTheme, toggleTheme } = useTheme();
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-50">
+    <Container className="fixed top-0 left-0 right-0 z-50">
       <div
         className="navigation mx-auto max-w-screen
     md:max-w-3xl px-4 pt-4 flex h-14 items-center justify-between bg-transparent"
@@ -54,6 +55,6 @@ export const Navigation = ({}) => {
           </div>
         </div>
       </div>
-    </div>
+    </Container>
   );
 };
