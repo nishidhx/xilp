@@ -7,7 +7,10 @@ export default function Work() {
         <div className="px-4">
             <h1 className="text-2xl font-bold">Work Experience</h1>
             <p className="text-secondary">My contributions and experience across multiple companies and positions.</p>
-        <ExperienceCard />
         </div>
+        
+            <div className="flex mt-10 px-4">
+                <ExperienceCard />
+            </div>
     </Container>
 }
