@@ -2,7 +2,7 @@ import { workExperience } from "./Experience-card";
 
 export const Skills = ({ skills }: { skills: string[] }) => {
   return (
-    <div className="flex gap-1 mt-2">
+    <div className="flex flex-wrap gap-1 mt-2">
       {skills.map((skill, index) => (
         <div
           className="text-sm rounded-md bg-slate-50/5 hover:bg-slate-50/10 transition-colors duration-100 border border-slate-500/10 w-fit p-1"

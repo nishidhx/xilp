@@ -30,13 +30,13 @@ export const Main = ({
     <div>
         <div className="group flex justify-between mt-5">
       <div>
-        <div className="flex gap-2 items-center">
-          <h1 className="text-xs sm:text-lg font-bold">{work.companyName}</h1>
+        <div className="flex gap-1 items-center">
+          <h1 className="text-sm sm:text-lg font-bold">{work.companyName}</h1>
           {work.working ? <Status /> : undefined}
           <div className="hover:bg-slate-50/10 rounded-md">
             {wrap ? (
               <button
-                className="hidden group-hover:block transition-transform text-amber-50/50 duration-200"
+                className="block sm:hidden sm:group-hover:block transition-transform text-amber-50/50 duration-200"
                 onClick={() => setClicked((prev) => !prev)}
               >
                 {clicked ? <ChevronUpIcon className="size-4"/> : <ChevronRightIcon className="size-4"/>}
@@ -46,7 +46,7 @@ export const Main = ({
         </div>
         <div className="text-[#909092] text-sm">{work.role}</div>
       </div>
-      <div className="flex flex-col items-end text-sm text-[#909092]">
+      <div className="flex flex-col items-end justify-center text-sm text-[#909092]">
         {new Date(work.joining_date).toLocaleDateString("en-US", {
           month: "long",
           year: "numeric",

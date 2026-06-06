@@ -5,6 +5,7 @@ import { Navigation } from "@/components/common/Navigation";
 import "./globals.css";
 import { TooltipProvider } from "@/components/[ui]/tooltip";
 import ClickSoundProvider from "@/components/ClickSoundProvider";
+import ReactLenis from "lenis/react";
 
 export const metadata: Metadata = {
   title: "xilp",
@@ -27,10 +28,12 @@ export default function RootLayout({
        <ClickSoundProvider />
         <TooltipProvider>
           <ThemeProvider>
+            <ReactLenis root>
             <header>
               <Navigation />
             </header>
             {children}
+            </ReactLenis>
           </ThemeProvider>
         </TooltipProvider>
       </body>

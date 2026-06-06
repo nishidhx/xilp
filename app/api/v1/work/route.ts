@@ -3,20 +3,23 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(request: NextRequest) {
   try {
-    const work = await prisma.experience.findMany({})
+    const work = await prisma.experience.findMany({
+      orderBy: { working: "desc" },
+    });
 
-    if (!work) {
-        return NextResponse.json({
-            message: "No work experiences found",
-            url: request.url
-        })
+    if (!work || work.length === 0) {
+      return NextResponse.json({
+        message: "No work experiences found",
+        url: request.url,
+        work: [],
+      });
     }
 
     return NextResponse.json({
-        message: "Work experiences fetched",
-        url: request.url,
-        work
-    })
+      message: "Work experiences fetched",
+      url: request.url,
+      work,
+    });
 
   } catch (err) {
     return NextResponse.json(

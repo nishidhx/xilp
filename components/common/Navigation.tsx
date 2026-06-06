@@ -13,7 +13,7 @@ export const Navigation = ({}) => {
     <Container className="fixed top-0 left-0 right-0 z-50  bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60">
       <div
         className="navigation mx-auto max-w-screen
-    md:max-w-2xl px-4 pt-4 flex h-14 items-center justify-between bg-transparent"
+    md:max-w-2xl pt-4 flex h-14 items-center justify-between bg-transparent"
       >
         <div className="navigator flex md:text-sm text-[#909092] gap-4 md:gap-6 justify-center items-center font-medium">
           <Link href={"/"}>Home</Link>
