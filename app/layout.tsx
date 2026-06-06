@@ -4,6 +4,7 @@ import { Navigation } from "@/components/common/Navigation";
 
 import "./globals.css";
 import { TooltipProvider } from "@/components/[ui]/tooltip";
+import ClickSoundProvider from "@/components/ClickSoundProvider";
 
 export const metadata: Metadata = {
   title: "xilp",
@@ -22,7 +23,8 @@ export default function RootLayout({
       className={`h-full antialiased`}
       suppressHydrationWarning
     >
-      <body className={`font-hanken-grotesk antialiased overflow-hidden`}>
+      <body className={`font-hanken-grotesk antialiased overflow-y-auto no-scrollbar scroll-smooth`}>
+       <ClickSoundProvider />
         <TooltipProvider>
           <ThemeProvider>
             <header>
