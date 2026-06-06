@@ -31,7 +31,7 @@ export const Main = ({
         <div className="group flex justify-between mt-5">
       <div>
         <div className="flex gap-2 items-center">
-          <h1 className="text-lg font-bold">{work.companyName}</h1>
+          <h1 className="text-xs sm:text-lg font-bold">{work.companyName}</h1>
           {work.working ? <Status /> : undefined}
           <div className="hover:bg-slate-50/10 rounded-md">
             {wrap ? (
