@@ -21,7 +21,7 @@ export const Hero = () => {
   };
 
   // return (
-  //   <div className="mx-auto w-full pt-16 md:max-w-3xl">
+  //   <div className="mx-auto w-full pt-16 md:max-w-2xl">
   //     <section className="flex">
   //       <div className="relative sm:w-fit">
   //         {/* nishidhx profile image */}
@@ -96,7 +96,7 @@ export const Hero = () => {
   // );
 
   return (
-    <Container className="mx-auto  w-full pt-12 md:max-w-3xl px-4">
+    <Container className="mx-auto  w-full pt-10 md:max-w-2xl px-4">
       <section className="flex flex-col sm:flex-row items-center sm:items-stretch gap-6 ">
         <div className="relative shrink-0">
           <Image
@@ -129,20 +129,20 @@ export const Hero = () => {
                 setClicked(true);
               }}
             >
-              <span className="flex items-center gap-1 break-all group-hover:text-slate-200 transition-colors duration-100">
+              <button className="flex items-center gap-1 break-all group-hover:text-slate-200 transition-colors duration-100">
                 xnishidh@gmail.com
                 {!clicked ? (
                   <Clip className="size-4 rotate-y-180" />
                 ) : (
                   <Tick className="size-4 text-green-500" />
                 )}
-              </span>
+              </button>
             </div>
           </div>
         </div>
       </section>
 
-      <div className="mt-4 sm:mt-6 flex flex-row items-center justify-center sm:justify-start gap-3">
+      <div className="mt-2 sm:mt-3 flex flex-row items-center justify-center sm:justify-start gap-3">
         <p className="text-secondary">I like building cool stuffs</p>
 
         <Tooltip>
@@ -161,13 +161,15 @@ export const Hero = () => {
         <Socials />
       </div>
 
-      {clicked && (
-        <Notification
-          title="Copied"
-          visible
-          icon={<Tick className="text-green-400" />}
-        />
-      )}
+      <div className="absolute">
+        {clicked && (
+          <Notification
+            title="Copied"
+            visible
+            icon={<Tick className="text-green-400" />}
+          />
+        )}
+      </div>
     </Container>
   );
 };

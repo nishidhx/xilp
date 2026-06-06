@@ -25,6 +25,18 @@
   --color-foreground: var(--foreground);
 }
 
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #100f0f;

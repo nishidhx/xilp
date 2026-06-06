@@ -32,7 +32,7 @@ export const Notification = ({
   return (
    <div
   className={cn(
-    "absolute sm:top-4 sm:right-4 hidden sm:flex",
+    "fixed top-4 right-4 sm:flex",
     "h-10 w-fit px-5 rounded-md border border-[#909092]/10 bg-slate-500/5",
     "transition-transform duration-300 ease-out",
     isVisible

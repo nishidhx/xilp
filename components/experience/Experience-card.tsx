@@ -2,7 +2,11 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Status } from "../[ui]/working";
-interface workExperience {
+import { SpinnerCustom } from "../[ui]/spinner";
+import { Skills, WorkDetail } from "./ToolTip";
+import { WorkType } from "@prisma/client";
+import { Main } from "./main";
+export type workExperience = {
   id: string;
   role: string;
   companyName: string;
@@ -11,6 +15,7 @@ interface workExperience {
   place: string;
   joining_date: string;
   working: boolean;
+  work: WorkType
 }
 
 export const ExperienceCard = () => {
@@ -29,44 +34,19 @@ export const ExperienceCard = () => {
     fetchUserExperience();
   }, []);
 
+  if (workExperience.length === 0) {
+    return <div className="w-full flex items-center justify-center h-50"><SpinnerCustom /></div>
+  }
+
   return (
     <div className="w-full">
       {workExperience &&
         Array.isArray(workExperience) &&
         workExperience.map((work, index) => (
-          <>
-            <div className="flex justify-between mt-5">
-              <div>
-                <div className="flex gap-2 items-center">
-                  <h1 className="text-lg font-bold">{work.companyName}</h1>
-                  {work.working ? <Status /> : undefined}
-                </div>
-                <div className="text-[#909092] text-sm">{work.role}</div>
-              </div>
-              <div className="flex flex-col items-end text-sm text-[#909092]">
-                {new Date(work.joining_date).toLocaleDateString("en-US", {
-                  month: "long",
-                  year: "numeric",
-                })}{" "}
-                {work.working ? "- present" : ""}
-                <div>{work.place}</div>
-              </div>
-            </div>
-            <div className="mt-4 py-2 space-y-4 border-t border-[#909092]/20 rounded-sm shadow-md border-border pt-4 outline-ring/50">
-              <div>
-                <h1 className="text-sm font-bold">Technologies & Tools</h1>
-              </div>
-              <div className="description text-[#909092] ">
-                {work.description.map((desc, index) => (
-                  <>
-                    <div className="flex text-sm  gap-1 items-center">
-                      <div>•</div> <div key={index}>{desc}</div>
-                    </div>
-                  </>
-                ))}
-              </div>
-            </div>
-          </>
+          <div key={index} className="overflow">
+            <Main work={work} wrap={false} page={0}/>
+            <WorkDetail work={work}/>
+          </div>
         ))}
     </div>
   );

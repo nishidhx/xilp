@@ -11,7 +11,7 @@ export const Status = ({
 }: {
   className?: string;
 }) => {
-  return <div className="flex items-center gap-1 rounded-md border border-green-300 bg-green-500/10 px-2 py-1 text-xs dark:border-green-600">
+  return <div className="flex items-center gap-1 rounded-md border border-green-300/5 bg-green-500/10 px-2 py-1 text-xs dark:border-green-600">
     <Greendot/>
     <div>
         <p className="text-xs">Working</p>

@@ -5,7 +5,7 @@ import Link from "next/link"
 
 export const Socials = () => {
     return (
-        <div className="flex flex-row justify-center sm:justify-stretch gap-2 text-secondary mt-4 sm:mt-2">
+        <div className="flex flex-row justify-center sm:justify-stretch gap-2 text-[#909092]/50 mt-4 sm:mt-2">
             {icons?.map((icon, idx) => (
                 <Tooltip key={idx}>
           <TooltipTrigger asChild>
