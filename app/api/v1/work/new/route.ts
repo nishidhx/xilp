@@ -10,7 +10,7 @@ export async function GET(request: NextRequest) {
 
 export async function POST(request: NextRequest) {
   try {
-    const { role, companyName, skills, description, joining_date, place, working, id } = await request.json();
+    const { role, companyName, skills, description, joining_date, place, working, id, type } = await request.json();
 
     if (!role || !companyName) {
       return NextResponse.json(
@@ -26,7 +26,8 @@ export async function POST(request: NextRequest) {
       description: description ?? [],
       joining_date: joining_date ?? "",
       place: place ?? "",
-      working: working ?? false
+      working: working ?? false,
+      type: type
     };
 
     

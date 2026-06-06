@@ -11,14 +11,21 @@ datasource db {
   provider = "postgresql"
 }
 
+enum WorkType {
+  HYBRID
+  ONSITE
+  REMOTE
+}
+
 model Experience {
-  id          String   @unique @default(uuid())
+  id   String @unique @default(uuid())
   role String
 
-  companyName String
-  skills      String[]
-  description String[]
+  companyName  String
+  skills       String[]
+  description  String[]
   joining_date String
-  place String
-  working Boolean
+  place        String
+  working      Boolean
+  work         WorkType @default(ONSITE)
 }
