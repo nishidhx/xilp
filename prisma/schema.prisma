@@ -18,7 +18,7 @@ enum WorkType {
 }
 
 model Experience {
-  id   String @unique @default(uuid())
+  id   String @id @unique @default(uuid())
   role String
 
   companyName  String
