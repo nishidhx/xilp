@@ -24,7 +24,7 @@ export default function RootLayout({
       className={`h-full antialiased`}
       suppressHydrationWarning
     >
-      <body className={`font-hanken-grotesk antialiased overflow-y-auto no-scrollbar scroll-smooth`}>
+      <body className={`font-hanken-grotesk antialiased no-scrollbar`}>
        <ClickSoundProvider />
         <TooltipProvider>
           <ThemeProvider>
