@@ -1,7 +1,8 @@
+import { Container } from "lucide-react";
 
 
 export default function Project() {
-    return <div>
-        projects
-    </div>
+    return <Container>
+        Blogs
+    </Container>
 }
