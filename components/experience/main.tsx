@@ -43,7 +43,7 @@ export const Main = ({
   }, [clicked]);
 
   return (
-    <div>
+    <div className="animate-in-up"> 
       <div className="group flex justify-between mt-5">
         <div>
           <div className="flex gap-1 items-center">

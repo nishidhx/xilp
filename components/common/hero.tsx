@@ -22,7 +22,7 @@ export const Hero = () => {
   };
 
   return (
-    <Container className="mx-auto  w-full pt-10 md:max-w-2xl px-4 ">
+    <Container className="mx-auto  w-full pt-10 md:max-w-2xl px-4 animate-in-up">
       <section className="flex flex-col sm:flex-row items-center sm:items-stretch gap-6 ">
         <div className="relative shrink-0">
           <Image

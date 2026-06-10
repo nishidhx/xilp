@@ -39,7 +39,7 @@ export const ExperienceCard = () => {
   }
 
   return (
-    <div className="w-full">
+    <div className="w-full animate-in-up" style={{animationDelay: "0.1s"}}>
       {workExperience &&
         Array.isArray(workExperience) &&
         workExperience.map((work, index) => (
