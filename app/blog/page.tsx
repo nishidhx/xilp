@@ -3,8 +3,14 @@ import { ResourcesSection } from "@/components/landing/blog/ResourcesSection";
 
 export default function Project() {
   const blogs = [
-    { title: "Buy vercel data with in 2 million dollars.", animationDelay: "0s" },
-    { title: "Why meta abnadoned git and switched to mercurial.", animationDelay: "0.05s" },
+    {
+      title: "Buy vercel data with in 2 million dollars.",
+      animationDelay: "0s",
+      description: "Vercel’s April 2026 security incident",
+      date: new Date(),
+      link: "",
+      badges: ["personal", "vercel"]
+    },
   ];
 
   return (
@@ -16,9 +22,12 @@ export default function Project() {
           for better understanding.
         </p>
       </div>
-      <div className="flex mt-10 flex-col animate-in-up" style={{animationDelay: "0.05s"}}>
+      <div
+        className="flex mt-10 flex-col animate-in-up"
+        style={{ animationDelay: "0.05s" }}
+      >
         {blogs.map((blog, index) => (
-          <ResourcesSection key={index} title={blog.title} animationDelay={blog.animationDelay}/>
+          <ResourcesSection key={index} {...blog} />
         ))}
       </div>
     </Container>

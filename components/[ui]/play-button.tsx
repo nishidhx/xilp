@@ -1,6 +1,5 @@
 import { Play } from "@/icons/play-icon";
 import cn from "@/utils/clsx";
-import { useRef, useState } from "react";
 
 export const PlayButton = ({
   className,

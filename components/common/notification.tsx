@@ -13,7 +13,7 @@ export const Notification = ({
   title: string;
   description?: string;
   icon?: React.ReactNode;
-  visible: Boolean
+  visible: boolean
 }) => {
     const [isVisible, setisVisible] = useState(visible);
 
@@ -27,7 +27,7 @@ export const Notification = ({
             return () => clearTimeout(hideNotification)
         }
 
-    }, [isVisible])
+    }, [visible])
 
   return (
    <div

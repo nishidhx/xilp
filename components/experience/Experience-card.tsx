@@ -1,9 +1,8 @@
 "use client";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Status } from "../[ui]/working";
 import { SpinnerCustom } from "../[ui]/spinner";
-import { Skills, WorkDetail } from "./ToolTip";
+import { WorkDetail } from "./ToolTip";
 import { WorkType } from "@prisma/client";
 import { Main } from "./main";
 export type workExperience = {
@@ -24,7 +23,7 @@ export const ExperienceCard = () => {
   useEffect(() => {
     const fetchUserExperience = async () => {
       const work = await axios.get(
-        `${process.env.SERVER_URL ?? "https://xilp.vercel.app"}/api/v1/work`,
+        `${process.env.SERVER_URL ?? "http://localhost:3000"}/api/v1/work`,
       );
       const data = await work.data.work;
       setworkExperience(data);

@@ -1,13 +1,10 @@
 import { WorkType } from "@prisma/client";
 import { Status } from "../[ui]/working";
 import type { workExperience } from "./Experience-card";
-import { ChevroRight } from "@/icons/chevron-icon";
 import { useEffect, useState } from "react";
 import {
   ChevronRightIcon,
-  ChevronUp,
   ChevronUpIcon,
-  Divide,
 } from "lucide-react";
 import { WorkDetail } from "./ToolTip";
 import { useLenis } from "lenis/react";

@@ -1,30 +1,32 @@
-@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,386;1,386&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,386;1,386&display=swap");
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
-
 
 @custom-variant dark (&:where(.dark, .dark *));
 
 @font-face {
-  font-family: 'Hanken Grotesk';
-  src: url('/fonts/HankenGrotesk-Variable.ttf') format('truetype');
+  font-family: "Hanken Grotesk";
+  src: url("/fonts/HankenGrotesk-Variable.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: 'Hanken Grotesk Italic';
-  src: url('/fonts/HankenGrotesk-Italic-Variable.ttf') format('truetype');
+  font-family: "Hanken Grotesk Italic";
+  src: url("/fonts/HankenGrotesk-Italic-Variable.ttf") format("truetype");
 }
 
 :root {
   --background: #ffffff;
   --foreground: #100f0f;
+  --secondary: rgb(248 250 252 / 0.05);
+  --secondary-foreground: #ffffff;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
 }
-
 
 @layer utilities {
   .no-scrollbar::-webkit-scrollbar {
@@ -43,7 +45,6 @@
   }
 }
 
-
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #100f0f;
@@ -61,11 +62,11 @@ body {
 }
 
 .font-hanken-grotesk {
-  font-family: 'Hanken Grotesk', sans-serif;
+  font-family: "Hanken Grotesk", sans-serif;
 }
 
 .font-hanken-grotesk-italic {
-  font-family: 'Hanken Grotesk Italic', sans-serif;
+  font-family: "Hanken Grotesk Italic", sans-serif;
 }
 @keyframes slideIn {
   from {

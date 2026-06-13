@@ -1,6 +1,5 @@
 "use client";
 import { useTheme } from "@/hooks/theme";
-import { Search } from "@/icons/search-icon";
 import { Moon, Sun } from "@/icons/theme-icon";
 import Link from "next/link";
 import { SerachBar } from "./search-bar";

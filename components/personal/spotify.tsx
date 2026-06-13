@@ -1,4 +1,3 @@
-import { Music } from "@/icons/music-icon";
 import Image from "next/image";
 import { useRef, useState } from "react";
 import { PlayButton } from "../[ui]/play-button";
