@@ -12,9 +12,16 @@ export const Blogs = () => {
       >
         Articles & Blogs
       </h1>
-      {blogs.map((blog, index) => (
-        <ResourcesSection key={index} {...blog} />
-      ))}
+      {blogs.map((blog, index) => {
+        const { animationDelay: _, ...blogProps } = blog;
+        return (
+          <ResourcesSection
+            key={index}
+            {...blogProps}
+            animationDelay={`${(0.05 + index * 0.1).toFixed(2)}s`}
+          />
+        );
+      })}
 
       <div
         className="mx-auto mt-4 animate-in-up"
