@@ -1,18 +1,8 @@
 import { Container } from "@/components/common/container";
 import { ResourcesSection } from "@/components/landing/blog/ResourcesSection";
+import { blogs } from "@/data/fetch";
 
 export default function Project() {
-  const blogs = [
-    {
-      title: "Buy vercel data with in 2 million dollars.",
-      animationDelay: "0s",
-      description: "Vercel’s April 2026 security incident",
-      date: new Date(),
-      link: "",
-      badges: ["personal", "vercel"]
-    },
-  ];
-
   return (
     <Container className="mt-30">
       <div className="animate-in-up">

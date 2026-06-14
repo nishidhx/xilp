@@ -1,11 +1,9 @@
+"use client";
 import { WorkType } from "@prisma/client";
 import { Status } from "../[ui]/working";
 import type { workExperience } from "./Experience-card";
 import { useEffect, useState } from "react";
-import {
-  ChevronRightIcon,
-  ChevronUpIcon,
-} from "lucide-react";
+import { ChevronRightIcon, ChevronUpIcon } from "lucide-react";
 import { WorkDetail } from "./ToolTip";
 import { useLenis } from "lenis/react";
 const workTypeLabel: Record<WorkType, string> = {
@@ -13,7 +11,6 @@ const workTypeLabel: Record<WorkType, string> = {
   [WorkType.REMOTE]: "remote",
   [WorkType.HYBRID]: "hybrid",
 };
-
 
 export const Main = ({
   work,
@@ -40,12 +37,12 @@ export const Main = ({
   }, [clicked]);
 
   return (
-    <div className="animate-in-up"> 
+    <div className="animate-in-up">
       <div className="group flex justify-between mt-5">
         <div>
-          <div className="flex gap-1 items-center">
-            <h1 className="text-sm sm:text-lg font-bold">{work.companyName}</h1>
-            {work.working ? <Status /> : undefined}
+          <div className="flex items-center">
+            <div className="flex gap-1"><h1 className="text-lg sm:text-lg font-bold w-fit">{work.companyName}</h1>
+            {work.working ? <Status /> : undefined}</div>
             <div className="hover:bg-slate-50/10 rounded-md">
               {wrap ? (
                 <button
@@ -63,12 +60,12 @@ export const Main = ({
           </div>
           <div className="text-[#909092] text-sm">{work.role}</div>
         </div>
-        <div className="flex flex-col items-end justify-center text-sm text-[#909092]">
+        <div className="flex w-fit flex-col items-end justify-center text-sm text-[#909092]">
           {new Date(work.joining_date).toLocaleDateString("en-US", {
-            month: "long",
+            month: "short",
             year: "numeric",
           })}{" "}
-          {work.working ? "- present" : ""}
+          {work.working ? "- Present" : ""}
           <div>
             {work.place} ({workTypeLabel[work.work]}){" "}
           </div>

@@ -20,7 +20,7 @@ export const ResourcesSection = (props: ResourcesSection) => {
   })
 
   return (
-    <div className="group flex flex-row h-fit justify-between border-b border-[#909092]/20">
+    <div className="group flex flex-row w-full h-fit justify-between">
       <div
         className="animate-in-up my-2 overflow-hidden"
         style={{ animationDelay: props.animationDelay }}

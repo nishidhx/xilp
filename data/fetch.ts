@@ -1,11 +1,107 @@
+import { WorkType } from "@prisma/client";
 import fs from "node:fs";
 
 export const read_work_exp = () => {
   try {
     const buffer = fs.readFileSync("./data/work/exp.json", "utf-8");
     return JSON.parse(buffer);
-  } catch (Err) {
-    console.log("Unable to fetch the experience");
+  } catch (err) {
+    console.log("Unable to fetch the experience : " + err);
     return null;
   }
 };
+
+export const works = [
+  {
+    id: "6a80c6ee-e3f1-4b45-90c4-b9b8ed95283a",
+    role: "Freelance Full Stack Developer",
+    companyName: "Self Employed",
+    skills: [
+      "JavaScript",
+      "React",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "MERN Stack",
+      "TypeScript",
+      "Next.js",
+    ],
+    description: [
+      "Building full-stack web applications and experimental products for learning and portfolio development for mitel, authlabs, sparks etc.",
+      "Developing modern user interfaces and backend APIs using the MERN stack.",
+      "Exploring new technologies and applying them in real-world projects.",
+      "Designing and deploying end-to-end solutions with a focus on performance and scalability.",
+      "Continuously expanding technical expertise through hands-on project development.",
+    ],
+    joining_date: "2023",
+    place: "UK",
+    working: true,
+    work: WorkType.REMOTE,
+  },
+  {
+    id: "63ca1f04-8850-4973-9b50-7f00443091d3",
+    role: "Software Engineer",
+    companyName: "Arraylog",
+    skills: [
+      "Golang",
+      "TypeScript",
+      "Shell Scripting",
+      "Windows IPC",
+      "Service Layer Protocols",
+      "Git",
+    ],
+    description: [
+      "Working on a B2B enterprise-level product, maintaining existing features and implementing new enhancements.",
+      "Developing and reviewing pull requests while ensuring software quality and stability.",
+      "Working extensively with Inter-Process Communication (IPC) mechanisms and service-layer protocols in Windows environments.",
+      "Collaborating with cross-functional teams to design, develop, and deploy scalable solutions.",
+      "Contributing to debugging, performance optimization, and feature development using Golang and TypeScript.",
+    ],
+    joining_date: "2025-10-14",
+    place: "Blr, IN",
+    working: true,
+    work: WorkType.HYBRID,
+  },
+  {
+    id: "7aaed44c-b7b4-4980-95de-f2c50968ce9e",
+    role: "Software Engineer",
+    companyName: "Qibts Systems",
+    skills: ["Java", "Spring Boot", "MySQL", "Git"],
+    description: [
+      "Built scalable backend services for internal platforms.",
+      "Wrote unit and integration tests for critical modules.",
+      "Participated in code reviews and technical discussions.",
+    ],
+    joining_date: "2021-09-20",
+    place: "UK",
+    working: false,
+    work: WorkType.REMOTE,
+  },
+  {
+    id: "e0952bfc-cf34-44ea-9215-b693590d0455",
+    role: "Technical Ambassador",
+    companyName: "GeeksforGeeks",
+    skills: ["Docker", "TypeScript", "AWS", "Vercel", "GenAI"],
+    description: [
+      "Promoted technical learning and coding culture within the campus community.",
+      "Conducted awareness sessions and helped students discover learning resources and career opportunities.",
+      "Mentored peers in Data Structures & Algorithms, problem-solving, and project development.",
+      "Supported students in leveraging modern technologies including cloud, web development, and AI.",
+    ],
+    joining_date: "2026",
+    place: "Blr, IN",
+    working: false,
+    work: WorkType.REMOTE,
+  },
+];
+
+export const blogs = [
+  {
+    title: "Buy vercel data with in 2 million dollars.",
+    animationDelay: "0s",
+    description: "Vercel’s April 2026 security incident",
+    date: new Date(),
+    link: "",
+    badges: ["personal", "vercel"],
+  },
+];
