@@ -23,7 +23,7 @@ export const ExperienceCard = () => {
   useEffect(() => {
     const fetchUserExperience = async () => {
       const work = await axios.get(
-        `${process.env.SERVER_URL ?? "http://localhost:3000"}/api/v1/work`,
+        `${process.env.NEXT_PUBLIC_SERVER_URL ?? "http://localhost:3000"}/api/v1/work`,
       );
       const data = await work.data.work;
       setworkExperience(data);

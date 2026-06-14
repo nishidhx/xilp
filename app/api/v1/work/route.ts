@@ -1,26 +1,38 @@
+import { read_work_exp } from "@/data/fetch";
 import prisma from "@/lib/prisma";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(request: NextRequest) {
   try {
-    const work = await prisma.experience.findMany({
-      orderBy: { working: "desc" },
-    });
+    const searchparams = request.nextUrl.searchParams;
 
-    if (!work || work.length === 0) {
+    if (searchparams.get("view") == "1") {
+      console.log("reached here");
+      const work = read_work_exp();
       return NextResponse.json({
-        message: "No work experiences found",
+        message: "Work experiences fetched",
         url: request.url,
-        work: [],
+        work,
+      });
+    } else {
+      const work = await prisma.experience.findMany({
+        orderBy: { working: "desc" },
+      });
+
+      if (!work || work.length === 0) {
+        return NextResponse.json({
+          message: "No work experiences found",
+          url: request.url,
+          work: [],
+        });
+      }
+
+      return NextResponse.json({
+        message: "Work experiences fetched",
+        url: request.url,
+        work,
       });
     }
-
-    return NextResponse.json({
-      message: "Work experiences fetched",
-      url: request.url,
-      work,
-    });
-
   } catch (err) {
     return NextResponse.json(
       {

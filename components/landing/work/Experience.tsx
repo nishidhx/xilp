@@ -6,6 +6,7 @@ import { WorkType } from "@prisma/client";
 import axios from "axios";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import "dotenv/config"
 
 interface workExperience {
   id: string;
@@ -22,10 +23,12 @@ interface workExperience {
 export const Experience = () => {
   const [workExperience, setworkExperience] = useState<workExperience[]>([]);
 
+  console.log(process.env.NEXT_PUBLIC_NEXT_PUBLIC_SERVER_URL)
+
   useEffect(() => {
     const fetchUserExperience = async () => {
       const work = await axios.get(
-        `${process.env.SERVER_URL ?? "http://localhost:3000"}/api/v1/work`,
+        `${process.env.NEXT_PUBLIC_NEXT_PUBLIC_SERVER_URL ?? "http://localhost:3000"}/api/v1/work?view=1`,
       );
       const data = await work.data.work;
       setworkExperience(data);
