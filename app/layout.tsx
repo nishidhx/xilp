@@ -39,14 +39,14 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Nishidh Singh", url: "https://github.com/nishidhx" }],
   openGraph: {
-    title: "Nishidh Singh | Full Stack Developer",
+    title: "xNishidh - Engineer",
     description:
       "Portfolio of Nishidh (Nihit) Singh – Full Stack Developer, open-source contributor, and hackathon enthusiast.",
     url: "https://www.xnishidh.space",
     siteName: "Nishidh's Portfolio",
     images: [
       {
-        url: "https://www.xnishidh.spave/nishidh.png", // Place this image in /public
+        url: "https://www.xnishidh.space/banner.png", // Place this image in /public
         width: 1200,
         height: 630,
         alt: "Nishidh Singh Portfolio Preview",
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     description:
       "Hey, I'm Nishidh – Full Stack Developer working with React, Next.js, Django, and Node.js.",
     site: "@xnishidh",
-    images: ["https://www.xnishidh.spave/nishidh.png"],
+    images: ["https://www.xnishidh.space/nishidh.png"],
   },
   icons: {
     icon: "/nishidh.png",

@@ -14,7 +14,7 @@ export const icons: SocialIcon[] = [
   {
     title: "GitHub",
     icon: <PiGithubLogoDuotone className="size-5" />,
-    link: "https://github.com/xnishidh",
+    link: "https://github.com/nishidhx",
   },
   {
     title: "X",
