@@ -8,14 +8,16 @@ import ClickSoundProvider from "@/components/ClickSoundProvider";
 import ReactLenis from "lenis/react";
 import { Footer } from "@/components/landing/footer";
 
+const siteUrl = new URL("https://www.xnishidh.space/");
 
 export const metadata: Metadata = {
   title: "Nishidh Singh | Full Stack Developer",
   description:
-    "Hey, I'm Nishihd Singh – a passionate Full Stack Developer skilled in JavaScript, TypeScript, React, Next.js, Node.js, Django, and more. Open to internships, full-time opportunities, and freelance projects.",
+    "Hey, I'm Nishidh Singh – Engineer who loves to create superb things.",
   keywords: [
     "xNishidh",
     "xnishidh",
+    "Nihit Singh",
     "Nishidh Singh",
     "Nihit",
     "Full Stack Developer",
@@ -42,11 +44,11 @@ export const metadata: Metadata = {
     title: "xNishidh - Engineer",
     description:
       "Portfolio of Nishidh (Nihit) Singh – Full Stack Developer, open-source contributor, and hackathon enthusiast.",
-    url: "https://www.xnishidh.space",
+    url: siteUrl.toString(),
     siteName: "Nishidh's Portfolio",
     images: [
       {
-        url: "https://www.xnishidh.space/banner.png", // Place this image in /public
+        url: new URL("/banner.png", siteUrl).toString(),
         width: 1200,
         height: 630,
         alt: "Nishidh Singh Portfolio Preview",
@@ -61,15 +63,15 @@ export const metadata: Metadata = {
     description:
       "Hey, I'm Nishidh – Full Stack Developer working with React, Next.js, Django, and Node.js.",
     site: "@xnishidh",
-    images: ["https://www.xnishidh.space/nishidh.png"],
+    images: [new URL("/banner.png", siteUrl).toString()],
   },
   icons: {
     icon: "/nishidh.png",
     apple: "/nishidh.png",
   },
-  metadataBase: new URL("https://www.xnishidh.space/"),
+  metadataBase: siteUrl,
   alternates: {
-    canonical: "https://xnishidh.space/",
+    canonical: siteUrl.toString(),
   },
 };
 
