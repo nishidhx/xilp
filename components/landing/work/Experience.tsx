@@ -7,7 +7,7 @@ import { works } from "@/data/fetch";
 
 export const Experience = () => {
   return (
-    <Container className="flex flex-col sm:items-start mt-12 max-w-2xl space-y-2 undefined">
+    <Container className="flex flex-col sm:items-start mt-10 max-w-2xl space-y-2 undefined">
       <h1
         className="text-lg sm:text-xl font-bold animate-in-up"
         style={{ animationDelay: "0s" }}

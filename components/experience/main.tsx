@@ -38,7 +38,7 @@ export const Main = ({
 
   return (
     <div className="animate-in-up">
-      <div className="group flex justify-between mt-5">
+      <div className="group flex justify-between mt-2">
         <div>
           <div className="flex items-center">
             <div className="flex gap-1"><h1 className="text-lg sm:text-lg font-bold w-fit">{work.companyName}</h1>

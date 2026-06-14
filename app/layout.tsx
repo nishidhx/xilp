@@ -6,6 +6,7 @@ import "./globals.css";
 import { TooltipProvider } from "@/components/[ui]/tooltip";
 import ClickSoundProvider from "@/components/ClickSoundProvider";
 import ReactLenis from "lenis/react";
+import { Footer } from "@/components/landing/footer";
 
 export const metadata: Metadata = {
   title: "xilp",
@@ -29,10 +30,15 @@ export default function RootLayout({
         <TooltipProvider>
           <ThemeProvider>
             <ReactLenis root>
-            <header>
-              <Navigation />
-            </header>
-            {children}
+              <div className="min-h-screen flex flex-col">
+                <header>
+                  <Navigation />
+                </header>
+
+                <main className="flex-1">{children}</main>
+
+                <Footer />
+              </div>
             </ReactLenis>
           </ThemeProvider>
         </TooltipProvider>

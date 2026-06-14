@@ -4,7 +4,7 @@ import { blogs } from "@/data/fetch";
 
 export default function Project() {
   return (
-    <Container className="mt-30">
+    <Container className="mt-20">
       <div className="animate-in-up">
         <h1 className="text-2xl font-bold">Articles & Blogs</h1>
         <p className="text-secondary">
