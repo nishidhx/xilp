@@ -12,7 +12,7 @@ export default function ResumePage() {
         <div className="mx-auto max-w-2xl rounded-lg p-2 border border-slate-500/10 bg-slate-50/5">
           <iframe
             src={
-              "https://drive.google.com/file/d/1eDnClA9C8Dln1nwl5oWeqYsIBeoCIUip/preview"
+              "https://drive.google.com/file/d/11DDnUDTpyaffvjjqFLsnO2ou_HJN6x7e/preview"
             }
             className="min-h-screen w-full rounded-lg"
           ></iframe>
