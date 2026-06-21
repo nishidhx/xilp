@@ -26,8 +26,10 @@ export async function generateMetadata({
 
   const { title, description, image } = post.frontmatter;
 
+  const baseUrl = process.env.NEXT_PUBLIC_SERVER_URL ?? "http://localhost:3000";
+
   return {
-    metadataBase: new URL((process.env.NEXT_PUBLIC_SERVER_URL ?? "http://localhost:3000/blog") + "/blog"),
+    metadataBase: new URL(baseUrl),
     title,
     description,
     openGraph: {
