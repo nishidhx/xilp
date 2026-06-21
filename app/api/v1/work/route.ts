@@ -7,7 +7,6 @@ export async function GET(request: NextRequest) {
     const searchparams = request.nextUrl.searchParams;
 
     if (searchparams.get("view") == "1") {
-      console.log("reached here");
       const work = read_work_exp();
       return NextResponse.json({
         message: "Work experiences fetched",

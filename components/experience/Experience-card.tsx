@@ -27,7 +27,6 @@ export const ExperienceCard = () => {
       );
       const data = await work.data.work;
       setworkExperience(data);
-      console.log(data);
     };
 
     fetchUserExperience();

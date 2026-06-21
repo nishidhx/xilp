@@ -32,10 +32,6 @@ export const Main = ({
     });
   };
 
-  useEffect(() => {
-    console.log(clicked);
-  }, [clicked]);
-
   return (
     <div className="animate-in-up">
       <div className="group flex justify-between mt-2">

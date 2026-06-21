@@ -10,8 +10,6 @@ const blogDirectory = path.join(process.cwd(), "data/blogs");
 export function getBlogPostBySlug(slug: string): BlogPost | null {
   try {
     const fullPath = path.join(blogDirectory, `${slug}.mdx`);
-
-    console.log(fullPath);
     if (!fs.existsSync(fullPath)) {
       return null;
     }
@@ -38,7 +36,7 @@ export function getBlogPostBySlug(slug: string): BlogPost | null {
 
 export function getBlogs(): Pick<
   BlogFrontmatter,
-  "title" | "description" | "date" | "tags" | 'slug'
+  "title" | "description" | "date" | "tags" | "slug"
 >[] {
   try {
     const fullPath = path.join(blogDirectory);
@@ -66,14 +64,16 @@ export function getBlogs(): Pick<
         description: frontmatter.description,
         date: frontmatter.date,
         tags: frontmatter.tags,
-        slug: frontmatter.slug
+        slug: frontmatter.slug,
       });
     }
 
-    blogs.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    blogs.sort(
+      (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
+    );
     return blogs;
   } catch (err) {
-    console.error(err)
+    console.error(err);
     return [];
   }
 }

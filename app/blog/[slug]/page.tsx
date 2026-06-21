@@ -50,9 +50,6 @@ export async function generateMetadata({
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug } = await params;
   const post = await getBlogPostBySlug(slug);
-
-  console.log(post);
-
   if (!post?.content || !post.frontmatter) {
     notFound();
   }

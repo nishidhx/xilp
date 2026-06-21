@@ -63,7 +63,12 @@ export const metadata: Metadata = {
     description:
       "Hey, I'm Nishidh – Full Stack Developer working with React, Next.js, Django, and Node.js.",
     site: "@xnishidh",
-    images: [new URL("/banner.png", siteUrl).toString()],
+    images: [{
+        url: new URL("/banner.png", siteUrl).toString(),
+        width: 1200,
+        height: 630,
+        alt: "Nishidh Singh Portfolio Preview",
+      }],
   },
   icons: {
     icon: "/nishidh.png",

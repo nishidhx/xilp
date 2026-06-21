@@ -40,5 +40,3 @@ class MarkDownParser {
 
 const test = new MarkDownParser(string)
 
-
-console.log(test.generateHTML())
