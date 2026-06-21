@@ -1,0 +1,148 @@
+---
+title: 'Git or Mercurial? Why Meta Walked Away From Git Scaling Crisis'
+description: 'Most developers entering tech today treat Git as something permanent.'
+image: '/blog/gitvsmercurial.png'
+tags: ['Git', 'Mercurial', 'Optimization', 'deployment', 'Meta', ]
+date: '2026-05-03'
+slug: 'gitvsmercurical'
+isPublished: true
+---
+
+## Git Scaling Crisis
+
+Most developers entering tech today treat Git as something permanent. like linux, VS code , tabs vs space args . it just part of engineering culture now.
+
+you initialized a repository, pushed it to Github, opens up a PR, resolve the merge conflicts, accidentally force push to the wrong branch once in your life, and you're a developer.
+
+It seems unbelievable when people discover that Meta, a global tech giant with a massive engineering team, deliberately abandoned Git for its main monorepo. 
+
+This wasn't just about the version control.
+
+It was about:
+- creating scaling engineering itself, productivity at a  scale.
+- workflow philosophy amd internal tooling culture.
+- and how human collaboration shapes technology decisions more than most people realize.
+
+## The Illusion of the Git Monopoly 
+
+For smaller teams git feels incredibly fast. Even with medium sized repositories works fine.
+
+```code
+git status
+```
+
+Doing git status feels instant, internally there's a lot more git has to inspect your working tree constantly it checks the modified files, timestamps, metadata, repository state, tracked and untracked chages and this process  is called "stat-ing".
+
+In Git, "stat-ing" typically refers to the internal process where the system examines files in the working directory to detect changes.
+
+Git compares the file's current metadata (like timestamp or size) against what is stored in the index to determine if it has been modified.
+
+But in huge monorepo (like those at Meta/Facebook), stat-ing millions of files can make commands like git status take several minutes. When repositories become absurdly large, these operations become expensive.
+
+Their monorepo had:
+
+- millions of lines of code and huge dependency graphs
+- massive engineering teams and gigantic file counts
+- extremely high commit frequency
+
+## Moment Git Started Breaking Down
+
+
+According to engineers involved in the migration, initially it worked fine for them. But meta engineers started noticing something dangerous: operations were gradually slowing down as repository size increased enough to trigger concern. And this part shows real engineer
+
+But as Facebook kept growing, the repository also kept getting bigger. More engineers, more services, more commits, and millions of files slowly started creating a problem. Git operations were becoming slower over time.
+
+Some Git operations reportedly started taking close to 45 minutes.Imagine running git status and waiting long enough to grab coffee, attend a meeting, and come back, traditional Git workflows were eventually going to struggle at their scale. Because monorepos solve huge organizational problems.
+
+Imagine updating: 
+- backend APIs
+- frontend logic
+- internal tooling
+- shared libraries
+
+inside separate repositories. Now coordination becomes difficult. With a monorepo everything can evolve together in one commit.
+
+Suppose you want to rename an internal API, migrate a framework, change logging infra or update shared dependecies in a multi repo environment it becomes headache but in monorepo you can refactor entire systems globally.
+
+Many tmes in fragmented repositories for massive application > dependecies relationships becomes harder to track.
+
+Monorepos allow companies to build:
+- centralized build systems
+- universal code search
+- advanced static analysis
+- organization-wide automation
+
+At Facebook scale, this mattered enormously. philosophy ended up shaping modern developer tooling culture far beyond Facebook itself.
+
+## Why Mercurial Became the Winner
+
+Git and mercurial  were both distributed VCS systems. A Version Control System (VCS) is a software tool that acts like a time machine for your project files. It records every change you make over time so you can review, undo, or share them later. but the real diff was extensibility and collabaration.
+
+![Architecture](https://pbs.twimg.com/media/HILgtm8aQAE3U7x?format=jpg&name=large)
+
+But there was a tradeoff.
+
+Because Git focused so heavily on low-level performance engineering, deeply customizing or extending its internals became difficult. The system was powerful, but not always easy to reshape for entirely new scaling challenges.
+
+Mercurial approached things differently.
+
+It gained a reputation for having a cleaner and more maintainable architecture. The system was designed with modularity and extensibility in mind, making it easier for engineers to modify and build additional tooling around it.
+
+A large portion of Mercurial was written in Python, which also made development and experimentation much easier compared to low-level C internals.
+
+For Facebook engineers, this difference mattered a lot.
+
+They were not simply picking a version control tool for current problems. They were thinking years ahead about scalability, customization, and long-term engineering flexibility.
+
+At Facebook’s scale, source control itself was becoming infrastructure.
+
+So the decision wasn’t just about choosing between Git and Mercurial.
+
+They were choosing the foundation they could continue building on top of for the next generation of engineering growth.
+
+## Stacked Diffs
+
+One of the biggest long-term outcomes from Facebook’s tooling philosophy was stacked diffs.
+
+```code
+Huge PR → Huge review → Slow iteration
+```
+
+```code
+Diff 1 ->  Diff 2 -> Diff 3
+```
+
+It enabled faster code reviews because engineers could review smaller, focused changes instead of huge pull requests. It also improved parallel feedback, allowing multiple engineers to work and review different parts of a stack simultaneously.
+
+Debugging became easier since changes were more isolated and easier to trace. The commit history also stayed much cleaner and more understandable over time.
+
+Most importantly, it reduced cognitive load for developers. Engineers no longer had to mentally process giant blocks of unrelated changes in a single review.
+
+"The real takeaway from this story isn’t that “Mercurial defeated Git."
+
+Because over time, Git improved massively too. Modern Git is far better at handling huge repositories than it was back in 2012. 
+
+"Facebook realized something important very early: small inefficiencies become massive problems when multiplied across thousands of engineers working every day."
+
+A few extra seconds during development might seem harmless for one person. But at Facebook’s scale or big projects scale, even tiny delays could translate into huge amounts of lost engineering time globally.
+
+ended up shaping a huge part of modern software development culture:
+- internal developer tooling, advanced code review systems, monorepo engineering strategies
+- developer productivity teams, modern pull request workflows
+
+Influence is visible across the entire developer ecosystem.
+
+Things like stacked PRs, merge queues, incremental code reviews, monorepo optimization, and even AI-assisted review workflows all carry ideas that came from solving engineering problems at Facebook scale years ago.
+
+## Conclusion
+
+"What makes this story fascinating isn’t just the technology. It’s that one disagreement about repository scaling quietly influenced an entire generation of engineering workflows." 
+
+## Sources
+
+```
+https://graphite.com/blog/why-facebook-doesnt-use-git
+https://www.devclass.com/development/2024/07/17/why-facebook-does-not-use-git-and-why-most-other-devs-do/1629858
+https://lobste.rs/s/r9lewl/why_facebook_doesn_t_use_git
+https://hejoseph.com/dev/blog/why-facebook-meta-does-not-use-git
+```

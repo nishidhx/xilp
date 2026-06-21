@@ -1,0 +1,40 @@
+---
+title: 'Vercel Data for $2 Million? What Happened'
+description: 'Vercel’s April 2026 security incident was not a direct breach of their main platform like many people assumed.'
+image: '/blog/vercelsecurityincident.png'
+tags: ['Vercel', 'Context.AI', 'Security', 'Data', ]
+date: '2026-04-20'
+slug: 'vercelsecurityincident'
+isPublished: true
+---
+
+
+At first, I was a little scared to keep using WebViews for software applications in Next.js due to cve's and third party access, but then I came across this Vercel security incident. Here’s the simple version of what happened.
+
+Vercel’s April 2026 security incident was not a direct breach of their main platform like many people assumed. The attack actually started through a third party AI tool called Context.ai that was being used by a Vercel employee.
+
+How it happened:
+
+The third party tool’s Google Workspace OAuth app was compromised. Through that access, the attacker was able to take over the employee’s Vercel Google Workspace account. From there, they gained access to some internal Vercel systems and certain environment variables that were not marked as sensitive.
+
+What attackers accessed:
+
+- Some internal environments
+- Environment variables not protected as sensitive
+- A limited number of customer credentials
+
+What stayed protected:
+
+Sensitive environment variables were stored securely, and Vercel said there was no evidence those values were accessed.
+
+What Vercel did next:
+
+- Started an active investigation
+- Worked with cybersecurity firms like Mandiant
+- Notified law enforcement
+- Contacted impacted customers
+- Added extra monitoring and protections
+
+Conclusion:
+
+Sometimes companies don’t get hacked through their main systems. Attackers often enter through connected third party tools, employee accounts, or OAuth permissions. One weak external integration can create a serious risk.This is why checking app permissions, limiting access, using strong security settings, and protecting secrets properly matters so much.
