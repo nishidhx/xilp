@@ -32,7 +32,7 @@ declare global {
  * ```
  */
 export function useUmami() {
-  const trackEvent = useCallback((event: unknown) => {
+  const trackEvent = useCallback((event: any) => {
     try {
       if (typeof window !== 'undefined' && window.umami) {
         window.umami.track(event.name, event.data);
