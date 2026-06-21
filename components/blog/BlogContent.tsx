@@ -6,6 +6,7 @@ import { BlogFrontmatter } from "@/types/blog";
 import Image from "next/image";
 import { Calendar } from "lucide-react";
 import { BackButton } from "@/icons/Back";
+import Link from "next/link";
 
 interface BlogContentProps {
   frontmatter: BlogFrontmatter;
@@ -14,13 +15,16 @@ interface BlogContentProps {
 
 export function BlogContent({ frontmatter, content }: BlogContentProps) {
   const { title, image, description, date } = frontmatter;
+
   return (
     <div>
       <div className="mb-10">
-        <button className="flex gap-2 hover:opacity-80 font-semibold flex-row items-center cursor-pointer">
-          <BackButton className=" size-4" />
-          <p>Back to Blog</p>
-        </button>
+        <Link href={"/blog"}>
+          <button className="flex gap-2 hover:opacity-80 font-semibold flex-row items-center cursor-pointer">
+            <BackButton className=" size-4" />
+            <p>Back to Blog</p>
+          </button>
+        </Link>
       </div>
 
       <Image

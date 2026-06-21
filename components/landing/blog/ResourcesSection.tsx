@@ -20,7 +20,7 @@ export const ResourcesSection = (props: ResourcesSection) => {
   });
 
   return (
-    <div className="group flex flex-row w-full h-fit justify-between">
+    <div className="group flex flex-row w-full h-fit my-2 justify-between">
       <Link href={`/blog/${props.slug}`}>
       <div
         className="animate-in-up my-2 overflow-hidden"
