@@ -10,7 +10,7 @@ const fetchBlogs = () => {
 }
 
 export const Blogs = () => {
-  const blogs = fetchBlogs();
+  const blogs = fetchBlogs().splice(0, 3);
 
   return (
     <Container className="flex flex-col sm:items-start mt-10 max-w-2xl space-y-2 undefined">

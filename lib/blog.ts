@@ -70,6 +70,7 @@ export function getBlogs(): Pick<
       });
     }
 
+    blogs.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
     return blogs;
   } catch (err) {
     console.error(err)

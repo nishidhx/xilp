@@ -137,10 +137,10 @@ export const BlogComponents = {
     return (
       <div className="group relative mb-4">
         <pre
-          className="bg-muted/30 overflow-x-auto rounded-lg border p-4 text-sm [&>code]:bg-transparent [&>code]:p-0"
+          className="overflow-x-auto rounded-lg p-4 text-sm [&>code]:bg-transparent [&>code]:p-0"
           {...props}
         >
-          {children}
+         $ {children}
         </pre>
         <CodeCopyButton code={codeText} />
       </div>
