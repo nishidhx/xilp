@@ -1,0 +1,54 @@
+---
+title: 'Marginal Probability vs Joint Probability vs Conditional Probability'
+description: 'Before getting into AI ML DS, let’s get a basic idea of what are events for the people who don’t know.'
+image: '/blog/prob.png'
+tags: ['frontend', 'development', 'design']
+date: '2025-02-25'
+slug: 'probability'
+isPublished: true
+---
+
+## Events
+
+An event (E) refers to something that happens as a result of performing a random experiment, and it is always a subset of the sample space (S). In simple terms, an event is a set of possible outcomes obtained from a random experiment. For example, when a die is thrown, the sample space consists of all possible outcomes, given by ( S = {1, 2, 3, 4, 5, 6} ). If the event is defined as obtaining an odd number, then the event set becomes ( E = {1, 3, 5} ). The probability of this event is calculated by dividing the number of outcomes favorable to the event by the total number of outcomes in the sample space.
+
+Events Can be of some types:
+
+- Independent : Each event is not affected by other events. Getting a head on the coin does not affect the outcome of the die roll, and similarly, the number shown on the die does not influence the result of the coin toss. Since the outcome of one event has no impact on the other, these events are considered independent.
+- Dependent (Also called Conditional) : the occurrence of one event affect the occurrence of another event. Suppose you draw one card from the deck of 52 cards. After taking out the card the deck will have one less card, so the probabilites changes!
+- Mutually Exclusive Events : Events that can’t happen at the same time. Meant (𝑃(𝐴∩𝐵)) is zero . Eg: A user cannot be both authenticated (logged in) and unauthenticated (logged out) at the exact same moment.
+
+## Probability
+
+It is the measure of the likelihood or chances that an event will occur. The probability of an event quantifies how likely it is for that event to occurs. It ranges from 0 to 1. 0 -> tells the event is impossible. It can be defined as number of favourable outcomes divided by total number of possible outcomes
+
+![Probability](https://pbs.twimg.com/media/HKzeKDBawAAm7RD?format=png&name=small)
+
+## Marginal Probability
+
+Marginal probability is the likelihood of one event happening, without caring about any other events.
+
+- Marginal Probability deals with a single event. It considers only one random variable or event, ignoring all others.
+- Marginal Probability obtained from Joint Probability. Summing the joint probabilities over all possible values and outcomes of the other variables. P(A) = Σ P(A∩B)
+- Values lies between 0 and 1. 0 ≤ P(A) ≤ 1.
+- The sum of all the marginal probabilites are equals to one.
+- Marginal Probability is independent in nature. It does not depend on whether other events occur or not.
+
+Eg : Suppose you rolled two dice the marginal probability of the rolling a 3 on the first die is obtainedd byb thhe summing the join probabilities for the all possible outcomes of the second outcome die.
+
+## Conditional Probability
+Conditional Probability is the likelihood of an event occuring given that when another event has already occurred. It is denoted by P(A | B) . Where P(A | B) is the probability of occurring of event A given that event B is already occurred.
+
+Eg : The probability of rolling the 3 on the first die given that the second die shows a 4 is P(Die 1 = 3 | Die 2 = 4) .
+
+- Conditional Probability depends on the occurrence of another event.
+- Used to update the probability of an event based on new information.
+- Conditional Probability is calculated using the joint probability and marginal probability. By dividing joint probability via marginal probability.
+
+## Joint Probability
+Joint Probability is the probability of two or more event occuring together. It’s denoted by P (A, B) . It involves multiple events happening simultaneously.
+
+- It can be calculated from a joint probability distribution.
+- Joint Probability used to find the likelihood of combined events in probabilistic models.
+
+Eg : Probability of rolling a 2 and flipping heads : P ( 2 & Heads ).

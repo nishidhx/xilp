@@ -6,21 +6,22 @@ import Link from "next/link";
 interface ResourcesSection {
   title: string;
   description: string;
-  animationDelay: string;
-  badges: string[];
-  date: Date
+  animationDelay?: string;
+  tags: string[];
+  date: Date;
+  slug: string;
 }
 
 export const ResourcesSection = (props: ResourcesSection) => {
-
-  const date = props.date.toLocaleDateString('en-US', {
+  const date = props.date.toLocaleDateString("en-US", {
     year: "numeric",
     month: "long",
-    day: "numeric"
-  })
+    day: "numeric",
+  });
 
   return (
     <div className="group flex flex-row w-full h-fit justify-between">
+      <Link href={`/blog/${props.slug}`}>
       <div
         className="animate-in-up my-2 overflow-hidden"
         style={{ animationDelay: props.animationDelay }}
@@ -32,7 +33,7 @@ export const ResourcesSection = (props: ResourcesSection) => {
           </div>
         </article>
         <div className="flex flex-row gap-2 justify-start my-2">
-          {props.badges.map((text, index) => (
+          {props.tags.map((text, index) => (
             <Badge
               key={index}
               className="secondary rounded-lg"
@@ -47,8 +48,9 @@ export const ResourcesSection = (props: ResourcesSection) => {
           <p>{date}</p>
         </div>
       </div>
-      <div className="flex text-secondary hover:underline opacity-0 group-hover:opacity-100 justify-center items-center transition-opacity duration-300">
-        <Link href={"/blog/vercel"}>Read more </Link>
+      </Link>
+      <div className="flex w-10 text-secondary hover:underline opacity-0 group-hover:opacity-100 justify-center items-center transition-opacity duration-300">
+        <Link href={`/blog/${props.slug}`}></Link>
         <ArrowRightIcon className="size-4" />
       </div>
     </div>

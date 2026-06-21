@@ -1,8 +1,15 @@
 import { Container } from "@/components/common/container";
 import { ResourcesSection } from "@/components/landing/blog/ResourcesSection";
-import { blogs } from "@/data/fetch";
+import { getBlogs } from "@/lib/blog";
+
+const fetchBlogs = () => {
+  const blogs = getBlogs();
+  return blogs
+}
+
 
 export default function Project() {
+  const blogs = fetchBlogs()
   return (
     <Container className="mt-20">
       <div className="animate-in-up">
@@ -17,7 +24,7 @@ export default function Project() {
         style={{ animationDelay: "0.05s" }}
       >
         {blogs.map((blog, index) => (
-          <ResourcesSection key={index} {...blog} />
+          <ResourcesSection key={index} {...blog} slug={blog.slug ?? ""} date={new Date(blog.date)} />
         ))}
       </div>
     </Container>

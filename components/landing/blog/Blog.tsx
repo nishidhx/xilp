@@ -1,9 +1,17 @@
 import { Container } from "@/components/common/container";
 import { ResourcesSection } from "./ResourcesSection";
-import { blogs } from "@/data/fetch";
 import Link from "next/link";
+import { getBlogs } from "@/lib/blog";
+
+
+const fetchBlogs = () => {
+  const blogs = getBlogs();
+  return blogs
+}
 
 export const Blogs = () => {
+  const blogs = fetchBlogs();
+
   return (
     <Container className="flex flex-col sm:items-start mt-10 max-w-2xl space-y-2 undefined">
       <h1
@@ -13,11 +21,14 @@ export const Blogs = () => {
         Articles & Blogs
       </h1>
       {blogs.map((blog, index) => {
-        const { animationDelay: _, ...blogProps } = blog;
         return (
           <ResourcesSection
             key={index}
-            {...blogProps}
+            title={blog.title}
+            description={blog.description}
+            date={new Date(blog.date)}
+            tags={blog.tags}
+            slug={blog.slug ?? ""}
             animationDelay={`${(0.05 + index * 0.1).toFixed(2)}s`}
           />
         );

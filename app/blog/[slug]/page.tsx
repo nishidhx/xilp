@@ -1,17 +1,29 @@
-"use client";
-import { CustomMDX } from "@/components/blog/BlogContent";
+import { BlogContent } from "@/components/blog/BlogContent";
 import { Container } from "@/components/common/container";
-import { useParams } from "next/navigation";
+import { getBlogPostBySlug } from "@/lib/blog";
+import { notFound } from "next/navigation";
 
-export default function ParticularBlog() {
-  const { slug } = useParams();
+interface BlogPostPageProps {
+  params: Promise<{
+    slug: string;
+  }>;
+}
 
-  return <Container className="mt-30">
-     <CustomMDX
-      // h1 now renders with `large-text` className
-      source={`# Hello World
-      This is from Server Components!
-    `}
-    />
-  </Container>;
+export default async function BlogPostPage({ params }: BlogPostPageProps) {
+  const { slug } = await params;
+  const post = await getBlogPostBySlug(slug);
+
+  console.log(post);
+
+  if (!post?.content || !post.frontmatter) {
+    notFound();
+  }
+
+  return (
+    <Container className="pt-20">
+      <div className="">
+        <BlogContent content={post?.content} frontmatter={post.frontmatter}/>
+      </div>
+    </Container>
+  );
 }
