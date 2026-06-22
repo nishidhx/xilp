@@ -2,6 +2,7 @@
 import { MDXRemote } from "next-mdx-remote/rsc";
 import rehypeHighlight from "@shikijs/rehype";
 import { BlogComponents } from "./BlogComponents";
+import { BlogContentResize } from "./BlogContentResize";
 import { BlogFrontmatter } from "@/types/blog";
 import Image from "next/image";
 import { Calendar } from "lucide-react";
@@ -64,6 +65,7 @@ export function BlogContent({ frontmatter, content }: BlogContentProps) {
           />
         </div>
       </article>
+      <BlogContentResize />
     </div>
   );
 }
