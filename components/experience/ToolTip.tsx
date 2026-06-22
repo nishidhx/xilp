@@ -15,9 +15,9 @@ export const Skills = ({ skills }: { skills: string[] }) => {
   );
 };
 
-export const WorkDetail = ({ work }: {work: workExperience}) => {
+export const WorkDetail = ({ work }: { work: workExperience }) => {
   return (
-    <div className="mt-4 py-2 space-y-4 border-t border-[#909092]/20 rounded-sm shadow-md border-border pt-4 outline-ring/50">
+    <div className="mt-4 py-2 space-y-4 border-t border-[#909092]/20 rounded-sm border-border pt-4 outline-ring/50">
       <div>
         <h1 className="text-sm font-bold">Technologies & Tools</h1>
         <Skills skills={work.skills} />
