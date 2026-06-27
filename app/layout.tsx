@@ -115,7 +115,7 @@ export default function RootLayout({
             </ReactLenis>
           </ThemeProvider>
         </TooltipProvider>
-	<Analytics/>
+        <Analytics />
       </body>
     </html>
   );
