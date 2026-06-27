@@ -8,6 +8,8 @@ import ClickSoundProvider from "@/components/ClickSoundProvider";
 import ReactLenis from "lenis/react";
 import { Footer } from "@/components/landing/footer";
 
+import { Analytics } from "@vercel/analytics/next";
+
 const siteUrl = new URL("https://www.xnishidh.space/");
 
 export const metadata: Metadata = {
@@ -113,6 +115,7 @@ export default function RootLayout({
             </ReactLenis>
           </ThemeProvider>
         </TooltipProvider>
+	<Analytics/>
       </body>
     </html>
   );
