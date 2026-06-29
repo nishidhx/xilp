@@ -9,6 +9,7 @@ import ReactLenis from "lenis/react";
 import { Footer } from "@/components/landing/footer";
 
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const siteUrl = new URL("https://www.xnishidh.space/");
 
@@ -116,6 +117,7 @@ export default function RootLayout({
           </ThemeProvider>
         </TooltipProvider>
 	<Analytics/>
+	<SpeedInsights/>
       </body>
     </html>
   );
