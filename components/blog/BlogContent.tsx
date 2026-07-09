@@ -57,6 +57,7 @@ export async function BlogContent({ frontmatter, content }: BlogContentProps) {
         className="w-full rounded-md"
         width={100}
         height={100}
+        loading="eager"
       />
       <div>
         <h1 className="text-white font-bold text-4xl my-2">{title}</h1>
