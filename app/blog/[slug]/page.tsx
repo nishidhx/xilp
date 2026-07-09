@@ -1,14 +1,21 @@
 import { BlogContent } from "@/components/blog/BlogContent";
 import { Container } from "@/components/common/container";
-import { getBlogPostBySlug } from "@/lib/blog";
+import { getBlogPostBySlug, getBlogSlugs } from "@/lib/blog";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import "dotenv/config"
+import "dotenv/config";
 
 interface BlogPostPageProps {
   params: Promise<{
     slug: string;
   }>;
+}
+
+export const revalidate = 3600;
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return getBlogSlugs().map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({

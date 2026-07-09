@@ -1,5 +1,5 @@
 // components/mdx-remote.js
-import { MDXRemote } from "next-mdx-remote/rsc";
+import { compileMDX } from "next-mdx-remote/rsc";
 import rehypeHighlight from "@shikijs/rehype";
 import { BlogComponents } from "./BlogComponents";
 import { BlogContentResize } from "./BlogContentResize";
@@ -8,14 +8,37 @@ import Image from "next/image";
 import { Calendar } from "lucide-react";
 import { BackButton } from "@/icons/Back";
 import Link from "next/link";
+import { cache } from "react";
 
 interface BlogContentProps {
   frontmatter: BlogFrontmatter;
   content: string;
 }
 
-export function BlogContent({ frontmatter, content }: BlogContentProps) {
+const getCompiledBlogContent = cache(async (source: string) => {
+  const { content } = await compileMDX({
+    source,
+    components: BlogComponents,
+    options: {
+      mdxOptions: {
+        rehypePlugins: [
+          [
+            rehypeHighlight,
+            {
+              theme: "github-dark",
+            },
+          ],
+        ],
+      },
+    },
+  });
+
+  return content;
+});
+
+export async function BlogContent({ frontmatter, content }: BlogContentProps) {
   const { title, image, description, date } = frontmatter;
+  const compiledContent = await getCompiledBlogContent(content);
 
   return (
     <div>
@@ -47,22 +70,7 @@ export function BlogContent({ frontmatter, content }: BlogContentProps) {
       </div>
       <article>
         <div className="prose prose-neutral dark:prose-invert max-w-none">
-          <MDXRemote
-            source={content}
-            components={BlogComponents}
-            options={{
-              mdxOptions: {
-                rehypePlugins: [
-                  [
-                    rehypeHighlight,
-                    {
-                      theme: "github-dark",
-                    },
-                  ],
-                ],
-              },
-            }}
-          />
+          {compiledContent}
         </div>
       </article>
       <BlogContentResize />

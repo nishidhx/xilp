@@ -2,14 +2,36 @@ import { BlogFrontmatter, BlogPost } from "@/types/blog";
 import fs from "fs";
 import matter from "gray-matter";
 import path from "path";
+import { cache } from "react";
+
 const blogDirectory = path.join(process.cwd(), "data/blogs");
+
+function getBlogFilePath(slug: string) {
+  return path.join(blogDirectory, `${slug}.mdx`);
+}
+
+export const getBlogSlugs = cache((): string[] => {
+  try {
+    if (!fs.existsSync(blogDirectory)) {
+      return [];
+    }
+
+    return fs
+      .readdirSync(blogDirectory)
+      .filter((file) => file.endsWith(".mdx"))
+      .map((file) => path.basename(file, ".mdx"));
+  } catch (error) {
+    console.error("Error listing blog slugs:", error);
+    return [];
+  }
+});
 
 /**
  * Get blog post by slug with full content
  */
-export function getBlogPostBySlug(slug: string): BlogPost | null {
+export const getBlogPostBySlug = cache((slug: string): BlogPost | null => {
   try {
-    const fullPath = path.join(blogDirectory, `${slug}.mdx`);
+    const fullPath = getBlogFilePath(slug);
     if (!fs.existsSync(fullPath)) {
       return null;
     }
@@ -32,19 +54,18 @@ export function getBlogPostBySlug(slug: string): BlogPost | null {
     console.error(`Error reading blog post ${slug}:`, error);
     return null;
   }
-}
+});
 
-export function getBlogs(): Pick<
+export const getBlogs = cache((): Pick<
   BlogFrontmatter,
   "title" | "description" | "date" | "tags" | "slug"
->[] {
+>[] => {
   try {
-    const fullPath = path.join(blogDirectory);
-    if (!fs.existsSync(fullPath)) {
+    if (!fs.existsSync(blogDirectory)) {
       return [];
     }
 
-    const files = fs.readdirSync(fullPath);
+    const files = fs.readdirSync(blogDirectory);
 
     const blogs: Pick<
       BlogFrontmatter,
@@ -52,7 +73,12 @@ export function getBlogs(): Pick<
     >[] = [];
 
     for (const file of files) {
-      const fileContents = fs.readFileSync(path.join(fullPath, file), "utf-8");
+      if (!file.endsWith(".mdx")) {
+        continue;
+      }
+
+      const filePath = path.join(blogDirectory, file);
+      const fileContents = fs.readFileSync(filePath, "utf-8");
       const { data } = matter(fileContents);
       const frontmatter = data as BlogFrontmatter;
       if (!frontmatter.title || !frontmatter.description) {
@@ -64,7 +90,7 @@ export function getBlogs(): Pick<
         description: frontmatter.description,
         date: frontmatter.date,
         tags: frontmatter.tags,
-        slug: frontmatter.slug,
+        slug: frontmatter.slug ?? path.basename(file, ".mdx"),
       });
     }
 
@@ -76,4 +102,4 @@ export function getBlogs(): Pick<
     console.error(err);
     return [];
   }
-}
+});
