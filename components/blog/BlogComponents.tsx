@@ -57,6 +57,17 @@ export const BlogComponents = {
       {children}
     </h3>
   ),
+  h4: ({
+    children,
+    ...props
+  }: {
+    children: React.ReactNode;
+    [key: string]: unknown;
+  }) => (
+    <h4 className="mt-6 mb-3 text-xl text-white font-medium" {...props}>
+      {children}
+    </h4>
+  ),
   // Custom paragraph styling
   p: ({
     children,
@@ -103,6 +114,28 @@ export const BlogComponents = {
       {children}
     </li>
   ),
+  a: ({
+    children,
+    ...props
+  }: {
+    children: React.ReactNode;
+    [key: string]: unknown;
+  }) => (
+    <a className="text-green-400 not-italic no-underline px-2 rounded-lg leading-7" {...props}>
+      {children}
+    </a>
+  ),
+  strong: ({
+    children,
+    ...props
+  }: {
+    children: React.ReactNode;
+    [key: string]: unknown;
+  }) => (
+    <strong className="text-red-400 not-italic bg-red-200/5 px-2 rounded-lg leading-7" {...props}>
+      {children}
+    </strong>
+  ),
   pre: ({
     children,
     ...props
@@ -140,7 +173,7 @@ export const BlogComponents = {
           className="overflow-x-auto rounded-lg p-4 text-sm [&>code]:bg-transparent [&>code]:p-0"
           {...props}
         >
-         $ {children}
+        {children}
         </pre>
         <CodeCopyButton code={codeText} />
       </div>
@@ -167,7 +200,7 @@ export const BlogComponents = {
 
     // Inline code styling
     return (
-      <code className="rounded px-2 py-1 font-mono text-sm" {...props}>
+      <code className="rounded py-1 text-secondary font-mono text-sm" {...props}>
         {children}
       </code>
     );

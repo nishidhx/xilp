@@ -23,7 +23,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const keywords = Array.from(new Set(allTags)).slice(0, 40);
 
   // try to pick an image from the first blog post's frontmatter (if available)
-  let ogImage = "/blog/docker.png";
+  let ogImage = "/opengraph/article.png";
   if (blogs.length > 0 && blogs[0].slug) {
     const post = getBlogPostBySlug(blogs[0].slug);
     if (post?.frontmatter?.image) ogImage = post.frontmatter.image;

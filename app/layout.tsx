@@ -18,6 +18,17 @@ export const metadata: Metadata = {
   description:
     "Hey, I'm Nishidh Singh – Engineer who loves to create superb things.",
   keywords: [
+    "aurenith",
+    "aurenith.team",
+    "Navya pandey",
+    "Sushant Kumar",
+    "Dhairya Panwar",
+    "Saumil Taragi",
+    "KCC",
+    "Team Aurenith",
+    "Hack India",
+    "@nishidh/logger",
+    "npm",
     "xNishidh",
     "xnishidh",
     "Nihit Singh",
@@ -46,12 +57,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: "xNishidh - Engineer",
     description:
-      "Portfolio of Nishidh (Nihit) Singh – Full Stack Developer, open-source contributor, and hackathon enthusiast.",
+      "Portfolio of Nishidh Singh aka Nihit – Engineer, open-source contributor, and hackathon enthusiast.",
     url: siteUrl.toString(),
     siteName: "Nishidh's Portfolio",
     images: [
       {
-        url: new URL("/banner.png", siteUrl).toString(),
+        url: new URL("/opengraph/xnishidh.png", siteUrl).toString(),
         width: 1200,
         height: 630,
         alt: "Nishidh Singh Portfolio Preview",
@@ -64,10 +75,10 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Nishidh Singh | Full Stack Developer",
     description:
-      "Hey, I'm Nishidh – Full Stack Developer working with React, Next.js, Django, and Node.js.",
+      "Hey, I'm Nishidh – Engineer working with React, Next.js, Django, and Node.js.",
     site: "@xnishidh",
     images: [{
-        url: new URL("/banner.png", siteUrl).toString(),
+        url: new URL("/opengraph/xnishidh.png", siteUrl).toString(),
         width: 1200,
         height: 630,
         alt: "Nishidh Singh Portfolio Preview",

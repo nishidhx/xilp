@@ -1,0 +1,136 @@
+---
+title: 'NumPy from scratch'
+description: 'NumPy is a Python library used for working with arrays. It also has functions for working in domain of linear algebra, fourier transform, and matrices.'
+image: '/blog/numpy.png'
+tags: ['statistics', 'machine learning', 'Data Science', 'learning']
+date: '2026-07-09'
+slug: 'numpy'
+isPublished: false
+---
+
+Numpy was created in 2005 by ***Travis Oliphant***. It is an open source project. It stands for numerical python.NumPy is a Python library and is written partially in Python, but most of the parts that require fast computation are written in C or C++.
+
+The source code for NumPy is located at this github repository [numpy_github](https://github.com/numpy/numpy)
+
+
+## Why we use numpy array instead of lists.
+
+In python we have lists that serves the purpose of arrays but they're slow in process.
+
+### In terms of Memory Layout
+
+Python list stores references (pointers) to python object not the value directly and each containing some of things like 
+- value (value of the element)
+- type Information (int, str, float, double ...)
+- reference count
+- and other metadatas
+
+This means there's an extra memory usage, more cache misses, and extra pointer for derefrencing.
+Whereas numpy array stores contiguously gave the benefits like cpu caches works efficiently, no pointer chasing, and uses less memory.
+
+![numpyvslist](https://imgstore00.s3.us-east-2.amazonaws.com/numpyvslist)
+
+### In terms of iterating over it
+
+for every iteration python lists fetch the object, then checks it's type and then performs the operations. Thousands or millions of interpreter instructions executed in this.
+
+In Numpy arrays the loops run in the compiled code which is return in c, avoiding python interpreter instructions overhead which makes it fasts.
+
+### Vectorization
+
+NumPy achieves near-instant computation on massive datasets due to three main internal designs:
+- Compiled C Code: The execution skips Python's slow, line-by-line interpretation overhead.
+- Contiguous Memory: NumPy arrays store identical data types packed closely together in memory, allowing your CPU to fetch data much faster than a standard Python list can.
+- SIMD Hardware Acceleration: It leverages Single Instruction, Multiple Data (SIMD) processor instructions to complete several math operations in a single CPU clock cycle.
+
+> loops are slow then numpy Vectorization
+
+![npr](https://imgstore00.s3.us-east-2.amazonaws.com/npr.png)
+
+### Memory Comparison
+
+In a 64 bit System one pointer is almost 8 bytes . Suppose there are 1_000_000 elements so ***1_000_000*** pointers so the size will 1_000_000 * 8 that is ***8_000_000*** bytes and roughly around ***8 MBs*** . And size of integer in Python object is 28 bytes which ***28_000_000*** bytes hence which approximates to ***27 MBs*** and it sum ups to ***35 MBs***
+
+And Numpy uses int64 which is roughly around ***8 bytes*** not pointers and python objects. And after all the calulations it sums up to ***8 MBs*** only
+
+Hence Python lists of 1_000_000 elements consumes roughly around 35 MBs Whereas NumPy takes only 8 MBs
+
+```python 
+# You can check it on your own system. 
+import sys
+import numpy as np
+
+print(sys.getsizeof(0))              # Size of one Python int
+print(sys.getsizeof([]))             # Empty list
+print(sys.getsizeof([1]))            # List with one pointer
+print(np.array([1], dtype=np.int64).itemsize)  # Bytes per NumPy element
+```
+
+> NumPy is often 10–50× faster for numerical operations, depending on the hardware and operation.
+
+### Installation of NumPy
+
+```python 
+pip install numpy 
+```
+
+### Import NumPy
+
+```python 
+import numpy
+
+arr = numpy.array([1, 2, 3, 4, 5])
+
+print(arr)
+```
+
+Now is imported and it is ready to use.
+
+### Create a NumPy ndarray Object
+
+The array object in numpy is called ***numpy.ndarray***. You can create a numpy array using numpy.array() function.
+
+```python
+import numpy as np
+
+array: np.ndarray = np.array([1, 2, 3, 4, 5])
+print(array)
+print(type(array))
+```
+
+```python
+[1 2 3 4 5]
+<class 'numpy.ndarray'>
+```
+
+We can initialize NumPy arrays from (nested) lists and tuples, and access elements using square brackets as array subscripts (similar to lists in Python).
+
+
+### Shape Size & Dimensions in NumPy Arrays
+
+- A NumPy array is a grid of values, all of the same type, and is indexed by a tuple of non-negative integers.
+- The rank of an array is the number of dimensions it contains.
+- The shape of an array is a tuple of integers giving the size of the array along each dimension.
+- The size of an array is the number of elements it contains (which is equivalent to np.prod(```<ndarray>```.shape), i.e., the product of the array’s dimensions).
+
+#### 0-Dim Arrays
+
+0-D Arrays are also called scalars, Each value in the array is a 0-dim array.
+
+```python
+arr = np.array(23)
+print(arr)
+```
+
+#### 1-Dim Arrays
+
+1-D Arrays are also called Basic Arrays, it is the collection of multiple 0-Dim arrays. These are the most common basic arrays. It is uni-dimensional in nature.
+
+```python
+arr = np.array([23, 1, 32, 2, 3])
+print(arr)
+```
+```python
+[23, 1, 32, 2, 3]
+```
+> Ques :: create an array of 3, 4, 52, 12, 1 ?

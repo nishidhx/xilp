@@ -25,7 +25,7 @@ const getCompiledBlogContent = cache(async (source: string) => {
           [
             rehypeHighlight,
             {
-              theme: "github-dark",
+              theme: "vitesse-dark",
             },
           ],
         ],
