@@ -27,7 +27,7 @@ export async function generateMetadata({
 
   if (!post || !post.frontmatter.isPublished) {
     return {
-      title: 'Post Not Found',
+      title: slug,
     };
   }
 
