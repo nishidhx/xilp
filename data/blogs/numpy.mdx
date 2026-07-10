@@ -304,3 +304,258 @@ None
 ```
 
 As copy doesn't contains the base attribute it will throw None for ***x.base*** and it throw the original array for ***y.base***.
+
+### NumPy Array Shape
+
+The shape of the array is the total number of elements you find in each dimessions of the tensor. It's an attribute of a numpy array which can be accessed directly to get the shape of the array. It returns a tuple that throws each index with the number of coressponding elements of each dimension map with the index.
+
+print the shape of 3D Array
+```python
+import numpy as np
+
+three_d_array = np.array([[[1, 2, 3], [4, 5, 6]], [[7, 8, 9], [9, 10, 10]]])
+print(three_d_array.shape)
+```
+
+```python
+(2, 2, 3)
+```
+It has 2 blocks that means depth of 2, and each block has 2 rows, and each rows has 3 columns. Every index tell us the number of elements of the coressponding dimension
+
+### Reshaping an Existing Array
+
+Reshaping is used when we need to change the dimension of array from one dimenesion to another dimension. It will change the number of elements in the dimension. While reshaping we need to take care the total number of elements and the values should remain intacted. 
+
+Reshaping an array means changing its rows and columns without altering the data inside it. You do this to format data for machine learning models or math functions. The total number of elements must always stay the same.
+
+In Python, you can use the reshape() method to change a flat list (1D) into a grid (2D). For example, if you have 6 numbers, you can arrange them into 2 rows and 3 columns.
+
+```python
+import numpy as np
+
+# Create a 1D array with 6 numbers
+original_array = np.array([1, 2, 3, 4, 5, 6])
+
+# Reshape it to have 2 rows and 3 columns
+reshaped_array = original_array.reshape(2, 3)
+
+print(reshaped_array)
+```
+
+```python 
+[[1 2 3]
+ [4 5 6]]
+```
+
+#### ***"-1"*** Trick in Reshpaing a numpy array
+
+If you do not want to calculate every dimension you can directly use -1 it automatically calculates for the dimensions such that numbers of elements be the same. Numpy will automatically figure out the missing value.
+
+```python
+# Automatically calculate columns (-1) to make 3 rows
+new_array = original_array.reshape(3, -1) 
+print(new_array)
+```
+
+```python
+[[1 2]
+[3 4]
+[5 6]]
+```
+
+#### reshaping a 1D array to 3D array
+
+1-D array contains 12 elements and to distribute it in 3 -> we can do (2, 2, 3 ) -> depth of 2, every block has 2 rows with every rows has 3 columns.
+
+```python
+import numpy as np
+
+arr = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12])
+newarr = arr.reshape(2, 3, 2)
+print(newarr)
+```
+
+```python
+[[[ 1  2  3]
+  [ 4  5  6]]
+
+ [[ 7  8  9]
+  [10 11 12]]]
+```
+
+### Iterating with NumPy Arrays
+
+Iterating means going to every element of the array one by one. If we iterate on a n-D array it will go through n-1th dimension one by one.
+
+#### Iterating 1D Array
+
+```python
+import numpy as np
+
+arr = np.array([1, 2, 3])
+
+for x in arr:
+  print(x)
+```
+
+#### Iterating 2-D Array
+
+```python
+import numpy as np
+
+arr = np.array([[1, 2, 3], [4, 5, 6]])
+
+for x in arr:
+  print(x)
+```
+
+### Joining NumPy arrays
+
+Joining basically either you extend one array with the other or you take all the elements of both the arrays and put that down into a single array. In NumPy arrays we join arrays with help of the axes.
+
+#### ***Concatenate()*** function
+
+if axis is not explicitly passeed the default is zero.
+
+```python
+import numpy as np
+
+arr1 = np.array([1, 2, 3])
+arr2 = np.array([4, 5, 6])
+
+arr = np.concatenate((arr1, arr2))
+print(arr)
+```
+
+### Join arrays using stack functions.
+
+Stacking is as similar as concatenation the only major difference is stacking place only alag one axis, but the main difference is that stacking joins arrays along a new axis, whereas concatenation joins arrays along an existing axis.
+
+![stack](https://imgstore00.s3.us-east-2.amazonaws.com/stacks)
+
+```python
+import numpy as np
+
+a = np.array([1, 2, 3])
+b = np.array([4, 5, 6])
+
+np.stack((a, b))
+```
+
+```python
+array([[1, 2, 3],
+       [4, 5, 6]])
+```
+
+#### Joining along rows
+
+You use ***hstack()*** to horizontally join two Arrays together.
+
+```python
+import numpy as np
+
+arr1 = np.array([1, 2, 3])
+arr2 = np.array([4, 5, 6])
+
+arr = np.hstack((arr1, arr2))
+print(arr)
+```
+
+```python
+[1 2 3 4 5 6]
+```
+
+#### Joining along columns
+
+You use ***vstack()*** to vertically join two arrays together.
+
+```python
+import numpy as np
+
+arr1 = np.array([1, 2, 3])
+arr2 = np.array([4, 5, 6])
+
+arr = np.vstack((arr1, arr2))
+print(arr)
+```
+
+```python
+[[1 2 3]
+ [4 5 6]]
+```
+
+#### Joining along depth
+
+You use ***dstack()*** to join it along depth axis.
+
+```python
+import numpy as np
+
+arr1 = np.array([1, 2, 3])
+arr2 = np.array([4, 5, 6])
+
+arr = np.dstack((arr1, arr2))
+print(arr)
+```
+
+```python
+[[[1 4]
+  [2 5]
+  [3 6]]]
+```
+
+### Splitting a NumPy Array
+
+Splliting a array is the opposite of concatenating arrays. Using array_splitter() in numpy we split the arrays accordingly.
+
+```python
+numpy.array_split(ary, indices_or_sections, axis=0)
+```
+
+***ary***: The source array you want to divide. It accepts array-like structures (e.g., lists, tuples, or existing ndarray objects). 
+
+***indices_or_sections*** : Determines how the array is split. It accepts two types of inputs
+- Integer (N): The array is divided into N sub-arrays. If the total length cannot be divided equally, it distributes the remainder elements to the first few sub-arrays so they differ by at most 1 element.
+- 1D Array or List of Integers: Specifies the exact entry indices where the splits occur. For example, [2, 5] splits a 1D array into ary[:2], ary[2:5], and ary[5:]
+
+***axis (Optional, default=0)*** : The dimension along which to split the array
+- axis=0 splits vertically (along the rows)
+- axis=1 splits horizontally (along the columns).
+
+Returns a list of sub-arrays representing views into the original array.
+
+#### How split is performed:
+
+Splits Base size : absolute(( Number of elements ) / indices)  -> No. of elements each array contains.
+
+Remainder : ( Number of elements ) % indcies -> no. of extra elements (n)
+
+first n sections will have base + 1 elements.
+
+And remaining sections get Base size elements each.
+
+```python
+import numpy as np
+
+arr = np.arange(7)  # [0, 1, 2, 3, 4, 5, 6]
+result = np.array_split(arr, 5)
+
+print(result)
+```
+
+```python
+[array([0, 1]), array([2, 3]), array([4]), array([5]), array([6])]
+```
+
+1. Splitting
+- Total Elements ((L)): 7
+- Number of Sections (\(N\)): 5
+- Base Size ((q)): 7 // 5 = 1 element per section.
+- Remainder ((r)): (7 mod 5 = 2\) extra elements.
+
+2. Distributing the Remainder
+
+NumPy distributes the 2 extra elements one by one to the first sections until it runs out.
+
+- First 2 sections get: Base Size (1) + 1 remainder = 2  elements each
+- Remaining 3 sections get: Base size = 1 element each
