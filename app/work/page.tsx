@@ -45,7 +45,7 @@ export default function Work() {
   return (
     <Container className="mt-20">
       <div className="animate-in-up">
-        <h1 className="text-2xl font-bold">Work Experience</h1>
+        <h1 className="text-2xl font-bold light:text-black">Work Experience</h1>
         <p className="text-secondary">
           My contributions and experience across multiple companies and
           positions.

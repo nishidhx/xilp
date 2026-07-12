@@ -13,9 +13,9 @@ export const Blogs = () => {
   const blogs = fetchBlogs().splice(0, 3);
 
   return (
-    <Container className="flex flex-col sm:items-start mt-10 max-w-2xl space-y-2 undefined">
+    <Container className="flex flex-col sm:items-start my-10 max-w-2xl space-y-2 undefined">
       <h1
-        className="text-lg sm:text-xl font-bold animate-in-up"
+        className="text-lg sm:text-xl light:text-black font-bold animate-in-up"
         style={{ animationDelay: "0s" }}
       >
         Articles & Blogs
@@ -40,7 +40,7 @@ export const Blogs = () => {
       >
         <button
           type="submit"
-          className="border border-slate-500/10 w-fit py-1 px-2 rounded-lg bg-slate-50/5 hover:bg-slate-50/10"
+          className="border light:text-black border-slate-500/10 w-fit py-1 px-2 rounded-lg bg-slate-50/5 hover:bg-slate-50/10"
         >
           <Link href={"/blog"}>Show all articles & blogs</Link>
         </button>

@@ -31,7 +31,7 @@ export const BlogComponents = {
     children: React.ReactNode;
     [key: string]: unknown;
   }) => (
-    <h1 className="mb-6 text-4xl text-white font-bold" {...props}>
+    <h1 className="mb-6 text-4xl light:text-black text-white font-bold" {...props}>
       {children}
     </h1>
   ),
@@ -42,7 +42,7 @@ export const BlogComponents = {
     children: React.ReactNode;
     [key: string]: unknown;
   }) => (
-    <h2 className="mt-8 mb-4 text-3xl text-white font-semibold" {...props}>
+    <h2 className="mt-8 mb-4 text-3xl light:text-black text-white font-semibold" {...props}>
       {children}
     </h2>
   ),
@@ -53,7 +53,7 @@ export const BlogComponents = {
     children: React.ReactNode;
     [key: string]: unknown;
   }) => (
-    <h3 className="mt-6 mb-3 text-2xl text-white font-medium" {...props}>
+    <h3 className="mt-6 mb-3 text-2xl light:text-black text-white font-medium" {...props}>
       {children}
     </h3>
   ),
@@ -64,7 +64,7 @@ export const BlogComponents = {
     children: React.ReactNode;
     [key: string]: unknown;
   }) => (
-    <h4 className="mt-6 mb-3 text-xl text-white font-medium" {...props}>
+    <h4 className="mt-6 mb-3 light:text-black text-xl text-white font-medium" {...props}>
       {children}
     </h4>
   ),
@@ -173,7 +173,7 @@ export const BlogComponents = {
           className="overflow-x-auto rounded-lg p-4 text-sm [&>code]:bg-transparent [&>code]:p-0"
           {...props}
         >
-        {children}
+          {children}
         </pre>
         <CodeCopyButton code={codeText} />
       </div>

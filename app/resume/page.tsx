@@ -46,7 +46,7 @@ export default function ResumePage() {
   return (
     <Container className="mt-20">
       <div>
-        <h1 className="text-2xl font-bold">Resume</h1> <p className="text-secondary">View and download my professional resume.</p>
+        <h1 className="text-2xl light:text-black font-bold">Resume</h1> <p className="text-secondary">View and download my professional resume.</p>
       </div>
       <div className="space-y-8">
         <Separator />

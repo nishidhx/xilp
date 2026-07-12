@@ -78,11 +78,11 @@ export const metadata: Metadata = {
       "Hey, I'm Nishidh – Engineer working with React, Next.js, Django, and Node.js.",
     site: "@xnishidh",
     images: [{
-        url: new URL("/opengraph/xnishidh.png", siteUrl).toString(),
-        width: 1200,
-        height: 630,
-        alt: "Nishidh Singh Portfolio Preview",
-      }],
+      url: new URL("/opengraph/xnishidh.png", siteUrl).toString(),
+      width: 1200,
+      height: 630,
+      alt: "Nishidh Singh Portfolio Preview",
+    }],
   },
   icons: {
     icon: "/nishidh.png",
@@ -101,7 +101,6 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      data-theme="dark"
       lang="en"
       className={`h-full antialiased`}
       suppressHydrationWarning
@@ -110,7 +109,7 @@ export default function RootLayout({
         <link rel="icon" href="/nishidh.png" />
         <meta name="robots" content="index, follow" />
       </head>
-      <body className={`font-hanken-grotesk antialiased no-scrollbar`}>
+      <body className={`font-hanken-grotesk  antialiased no-scrollbar`}>
         <ClickSoundProvider />
         <TooltipProvider>
           <ThemeProvider>
@@ -120,15 +119,15 @@ export default function RootLayout({
                   <Navigation />
                 </header>
 
-                <main className="flex-1">{children}</main>
+                <main className="flex-1 light:bg-white">{children}</main>
 
                 <Footer />
               </div>
             </ReactLenis>
           </ThemeProvider>
         </TooltipProvider>
-	<Analytics/>
-	<SpeedInsights/>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

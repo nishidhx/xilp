@@ -72,7 +72,7 @@ export default function Project() {
   return (
     <Container className="mt-20">
       <div className="animate-in-up">
-        <h1 className="text-2xl font-bold">Articles & Blogs</h1>
+        <h1 className="text-2xl font-bold light:text-black">Articles & Blogs</h1>
         <p className="text-secondary">
           Read this articles that are written to make complex things into chunks
           for better understanding.

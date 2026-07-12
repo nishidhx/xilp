@@ -22,32 +22,32 @@ export const ResourcesSection = (props: ResourcesSection) => {
   return (
     <div className="group flex flex-row w-full h-fit my-2 justify-between">
       <Link href={`/blog/${props.slug}`}>
-      <div
-        className="animate-in-up my-2 overflow-hidden"
-        style={{ animationDelay: props.animationDelay }}
-      >
-        <article>
-          <h1 className="text-lg font-semibold">{props.title}</h1>
-          <div className="text-sm text-secondary">
-            <p>{props.description}</p>
+        <div
+          className="animate-in-up my-2 overflow-hidden"
+          style={{ animationDelay: props.animationDelay }}
+        >
+          <article>
+            <h1 className="text-lg light:text-black font-semibold">{props.title}</h1>
+            <div className="text-sm text-secondary">
+              <p>{props.description}</p>
+            </div>
+          </article>
+          <div className="flex flex-row gap-2 justify-start my-2">
+            {props.tags.map((text, index) => (
+              <Badge
+                key={index}
+                className="secondary light:text-black light:border-slate-200 rounded-lg"
+                variant="secondary"
+              >
+                {text}
+              </Badge>
+            ))}
           </div>
-        </article>
-        <div className="flex flex-row gap-2 justify-start my-2">
-          {props.tags.map((text, index) => (
-            <Badge
-              key={index}
-              className="secondary rounded-lg"
-              variant="secondary"
-            >
-              {text}
-            </Badge>
-          ))}
+          <div className="text-xs flex text-secondary gap-1 ml-1">
+            <Calendar className="size-4 text-secondary" />
+            <p>{date}</p>
+          </div>
         </div>
-        <div className="text-xs flex text-secondary gap-1 ml-1">
-          <Calendar className="size-4 text-secondary" />
-          <p>{date}</p>
-        </div>
-      </div>
       </Link>
       <div className="flex w-10 text-secondary hover:underline opacity-0 group-hover:opacity-100 justify-center items-center transition-opacity duration-300">
         <Link href={`/blog/${props.slug}`}></Link>

@@ -2,13 +2,13 @@
 import { compileMDX } from "next-mdx-remote/rsc";
 import rehypeHighlight from "@shikijs/rehype";
 import { BlogComponents } from "./BlogComponents";
-import { BlogContentResize } from "./BlogContentResize";
 import { BlogFrontmatter } from "@/types/blog";
 import Image from "next/image";
 import { Calendar } from "lucide-react";
 import { BackButton } from "@/icons/Back";
 import Link from "next/link";
 import { cache } from "react";
+import { LazyBlogContent } from "./LazyBlogContent";
 
 interface BlogContentProps {
   frontmatter: BlogFrontmatter;
@@ -25,7 +25,10 @@ const getCompiledBlogContent = cache(async (source: string) => {
           [
             rehypeHighlight,
             {
-              theme: "vitesse-dark",
+              themes: {
+                dark: "vitesse-dark",
+                light: "rose-pine-dawn"
+              },
             },
           ],
         ],
@@ -44,8 +47,8 @@ export async function BlogContent({ frontmatter, content }: BlogContentProps) {
     <div>
       <div className="mb-10">
         <Link href={"/blog"}>
-          <button className="flex gap-2 hover:opacity-80 font-semibold flex-row items-center cursor-pointer">
-            <BackButton className=" size-4" />
+          <button className="flex gap-2 light:text-black hover:opacity-80 font-semibold flex-row items-center cursor-pointer">
+            <BackButton className=" size-4 light:text-black" />
             <p>Back to Blog</p>
           </button>
         </Link>
@@ -60,7 +63,7 @@ export async function BlogContent({ frontmatter, content }: BlogContentProps) {
         loading="eager"
       />
       <div>
-        <h1 className="text-white font-bold text-4xl my-2">{title}</h1>
+        <h1 className="text-white font-bold text-4xl light:text-black my-2">{title}</h1>
         <p className="text-secondary">{description}</p>
         <div className="text-xs flex text-secondary gap-1 mt-4">
           <Calendar className="size-4 text-secondary" />
@@ -69,12 +72,13 @@ export async function BlogContent({ frontmatter, content }: BlogContentProps) {
 
         <div className="border-b border-[#f8fafc0d] mt-2"></div>
       </div>
-      <article>
-        <div className="prose prose-neutral dark:prose-invert max-w-none">
-          {compiledContent}
-        </div>
-      </article>
-      <BlogContentResize />
+      <LazyBlogContent>
+        <article>
+          <div className="prose prose-neutral dark:prose-invert max-w-none">
+            {compiledContent}
+          </div>
+        </article>
+      </LazyBlogContent>
     </div>
   );
 }

@@ -9,7 +9,7 @@ export const Container = ({
   className?: string;
   children: React.ReactNode;
 }) => {
-  return <div className={cn("animate-fade-in-blur container mx-auto max-w-2xl px-4", className)} {...props}>
+  return <div className={cn("animate-fade-in-blur light:bg-white container mx-auto max-w-2xl px-4", className)} {...props}>
     {children}
 
   </div>;

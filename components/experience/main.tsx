@@ -37,12 +37,12 @@ export const Main = ({
       <div className="group flex justify-between mt-2">
         <div>
           <div className="flex items-center">
-            <div className="flex gap-1"><h1 className="text-lg sm:text-lg font-bold w-fit">{work.companyName}</h1>
-            {work.working ? <Status /> : undefined}</div>
+            <div className="flex gap-1"><h1 className="text-lg light:text-black sm:text-lg font-bold w-fit">{work.companyName}</h1>
+              {work.working ? <Status /> : undefined}</div>
             <div className="hover:bg-slate-50/10 rounded-md">
               {wrap ? (
                 <button
-                  className="block sm:hidden sm:group-hover:block transition-transform text-amber-50/50 duration-200"
+                  className="block sm:hidden light:text-slate-300 sm:group-hover:block transition-transform text-amber-50/50 duration-200"
                   onClick={() => toggle()}
                 >
                   {clicked ? (

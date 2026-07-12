@@ -5,7 +5,7 @@ export const Moon = ({ className }: { className?: string }) => {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
-      fill="currentColor"
+      fill="#bebebf68"
       className={cn("size-6", className)}
     >
       <path
