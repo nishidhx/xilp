@@ -26,6 +26,7 @@ export const Navigation = () => {
           <Link href={"/work"}>Work</Link>
           <Link href={"/blog"}>Blog</Link>
           <Link href={"/resume"}>Resume</Link>
+          <Link href={"/project"}>Projects</Link>
         </div>
 
         {/* Serach bar */}
