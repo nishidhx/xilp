@@ -13,7 +13,13 @@ export default function Project() {
       </div>
       <div className="flex flex-col mb-20 gap-2 w-full mt-10">
        {projects.map((project, index) => (
+        <div
+            className="w-full animate-in-up"
+            style={{ animationDelay: `${(0.05 + index * 0.2).toFixed(2)}s` }}
+            key={index}
+          >
         <ProjectCard title={project.title} descripiton={project.description} date={project.date} key={index} image={project.image} building={project.building} github={project.github}/>
+        </div>
        ))}
       </div>
     </Container>

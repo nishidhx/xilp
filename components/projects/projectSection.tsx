@@ -4,16 +4,17 @@ import { ProjectCard } from "./Card";
 import Link from "next/link";
 
 export const ProjectSection = () => {
+  const projectArray = projects.slice(0, 3)
   return (
     <Container className="flex flex-col sm:items-start mt-10 mb-10 max-w-2xl space-y-2 undefined">
       <h1
-        className="text-lg light:text-black sm:text-xl mb-10 font-bold animate-in-up"
+        className="text-lg light:text-black sm:text-xl font-bold animate-in-up"
         style={{ animationDelay: "0s" }}
       >
         Projects I've built
       </h1>
 
-      {projects.map((project, index) => {
+      {projectArray.map((project, index) => {
         return (
           <div
             className="w-full animate-in-up"
@@ -41,7 +42,7 @@ export const ProjectSection = () => {
           type="submit"
           className="border light:text-black border-slate-500/10 w-fit py-1 px-2 rounded-lg bg-slate-50/5 hover:bg-slate-50/10"
         >
-          <Link href={"/blog"}>Show all projects</Link>
+          <Link href={"/project"}>Show all projects</Link>
         </button>
       </div>
     </Container>

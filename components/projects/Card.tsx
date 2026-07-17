@@ -19,7 +19,7 @@ export const ProjectCard = ({
   building: boolean
 }) => {
   return (
-    <div className="card-container w-full h-auto flex flex-col border p-5 border-slate-50/5 bg-slate-50/2 light:bg-white rounded-lg">
+    <div className="card-container my-2 w-full h-auto flex flex-col border p-5 border-slate-50/5 light:border-slate-100 bg-slate-50/2 light:bg-white rounded-lg">
       <div className="w-full rounded-lg overflow-hidden">
         <Image
           src={image}
