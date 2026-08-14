@@ -3,7 +3,7 @@ import { Socials } from "../personal/social-buttons";
 
 export const Footer = () => {
   return (
-    <footer className="relative w-full bg-[#161515] light:bg-white border-t border-slate-300/20 shadow-lg opacity-95 px-4 py-10">
+    <footer className="relative w-full mt-10 bg-[#161515] light:bg-white border-t border-slate-300/20 shadow-lg opacity-95 px-4 py-10">
       <Container>
         <div className="flex flex-col items-start gap-6">
           <div>
