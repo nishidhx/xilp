@@ -16,7 +16,7 @@ export async function generateMetadata() {
         "This page containes resume of an engineer named Nishidh Singh",
       images: [
         {
-          url: new URL("/opengraph/resume.png", siteUrl).toString(),
+          url: "https://raw.githubusercontent.com/nishidhx/xilp/refs/heads/master/public/opengraph/resume.png",
           width: 1200,
           height: 630,
           alt: "Nishidh Singh Work Experience",
@@ -31,7 +31,7 @@ export async function generateMetadata() {
       site: "@xnishidh",
       images: [
         {
-          url: new URL("/opengraph/resume.png", siteUrl).toString(),
+          url: "https://raw.githubusercontent.com/nishidhx/xilp/refs/heads/master/public/opengraph/resume.png",
           width: 1200,
           height: 630,
           alt: "Nishidh Singh resume",

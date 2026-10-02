@@ -4,7 +4,7 @@ import { useEffect } from "react";
 
 export default function ClickSoundProvider() {
   useEffect(() => {
-    const audio = new Audio("/sounds/click.mp3");
+    const audio = new Audio("https://raw.githubusercontent.com/nishidhx/xilp/refs/heads/master/public/sounds/click.mp3");
     audio.volume = 0.3;
 
     const handleClick = (e: MouseEvent) => {

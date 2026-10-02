@@ -62,7 +62,7 @@ export const metadata: Metadata = {
     siteName: "Nishidh's Portfolio",
     images: [
       {
-        url: new URL("/opengraph/xnishidh.png", siteUrl).toString(),
+        url: "https://raw.githubusercontent.com/nishidhx/xilp/refs/heads/master/public/opengraph/xnishidh.png",
         width: 1200,
         height: 630,
         alt: "Nishidh Singh Portfolio Preview",
@@ -78,15 +78,15 @@ export const metadata: Metadata = {
       "Hey, I'm Nishidh – Engineer working with React, Next.js, Django, and Node.js.",
     site: "@xnishidh",
     images: [{
-      url: new URL("/opengraph/xnishidh.png", siteUrl).toString(),
+      url: "https://raw.githubusercontent.com/nishidhx/xilp/refs/heads/master/public/opengraph/xnishidh.png",
       width: 1200,
       height: 630,
       alt: "Nishidh Singh Portfolio Preview",
     }],
   },
   icons: {
-    icon: "/nishidh.png",
-    apple: "/nishidh.png",
+    icon: "https://raw.githubusercontent.com/nishidhx/xilp/refs/heads/master/public/nishidh.png",
+    apple: "https://raw.githubusercontent.com/nishidhx/xilp/refs/heads/master/public/nishidh.png",
   },
   metadataBase: siteUrl,
   alternates: {
@@ -106,7 +106,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
-        <link rel="icon" href="/nishidh.png" />
+        <link rel="icon" href="https://raw.githubusercontent.com/nishidhx/xilp/refs/heads/master/public/nishidh.png" />
         <meta name="robots" content="index, follow" />
       </head>
       <body className={`font-hanken-grotesk  antialiased no-scrollbar`}>

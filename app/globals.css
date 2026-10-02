@@ -6,12 +6,12 @@
 
 @font-face {
   font-family: "Hanken Grotesk";
-  src: url("/fonts/HankenGrotesk-Variable.ttf") format("truetype");
+  src: url("https://raw.githubusercontent.com/nishidhx/xilp/refs/heads/master/public/fonts/HankenGrotesk-Variable.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "Hanken Grotesk Italic";
-  src: url("/fonts/HankenGrotesk-Italic-Variable.ttf") format("truetype");
+  src: url("https://raw.githubusercontent.com/nishidhx/xilp/refs/heads/master/public/fonts/HankenGrotesk-Italic-Variable.ttf") format("truetype");
 }
 
 :root {

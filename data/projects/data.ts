@@ -49,7 +49,7 @@ export const projects = [
     description:
       "Certificate verification platform for open-source contributors with secure credential verification and Next.js.",
     date: "2025-08",
-    image: "labCert.png",
+    image: "https://raw.githubusercontent.com/nishidhx/xilp/refs/heads/master/public/images/labCert.png",
     github: "https://github.com/orgs/devrel-labs",
     demo: "https://devrel-labs.github.io/devrel-labs/",
     building: false,

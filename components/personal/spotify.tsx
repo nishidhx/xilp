@@ -27,7 +27,7 @@ export const Spotify = () => {
       className="w-36.25 gap-2 sm:mt-0 border border-slate-500/10 py-1 cursor-pointer rounded-md bg-slate-50/5 hover:bg-slate-50/10 transition-colors duration-100 flex items-center px-1"
     >
       <Image
-        src={"/icons/music.png"}
+        src={"https://raw.githubusercontent.com/nishidhx/xilp/refs/heads/master/public/icons/music.png"}
         height={100}
         width={100}
         alt=""
@@ -38,7 +38,7 @@ export const Spotify = () => {
       ) : (
         <p className="text-xs text-secondary">Ganga Ke Kinaare</p>
       )}
-      <audio src="/audio/GKK.mp3" itemType="" muted ref={musicRef}></audio>
+      <audio src="https://raw.githubusercontent.com/nishidhx/xilp/refs/heads/master/public/audio/GKK.mp3" itemType="" muted ref={musicRef}></audio>
     </div>
   );
 };
