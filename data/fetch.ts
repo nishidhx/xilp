@@ -57,9 +57,9 @@ export const works = [
       "Collaborating with cross-functional teams to design, develop, and deploy scalable solutions.",
       "Contributing to debugging, performance optimization, and feature development using Golang and TypeScript.",
     ],
-    joining_date: "2025-10-14",
+    joining_date: "2026-07-14",
     place: "Blr, IN",
-    working: true,
+    working: false,
     work: WorkType.HYBRID,
   },
   {

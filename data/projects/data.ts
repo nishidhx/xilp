@@ -1,5 +1,16 @@
 export const projects = [
   {
+    id: 32,
+    title: "XIM",
+    description:
+      "Edge-first video analytics for remote forests and border areas. Analyzes CCTV, ESP32-CAM, and webcam feeds locally, records risk-scored events offline, and syncs them to a central server when connectivity returns.",
+    date: "2026-11",
+    image: "https://raw.githubusercontent.com/nishidhx/xilp/refs/heads/master/public/images/xim.png",
+    github: "https://github.com/nishidhx",
+    demo: "",
+    building: true,
+  },
+  {
     id: 31,
     title: "SAFE_HER",
     description:

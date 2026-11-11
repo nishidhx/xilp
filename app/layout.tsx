@@ -10,8 +10,7 @@ import { Footer } from "@/components/landing/footer";
 
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-
-const siteUrl = new URL("https://www.xnishidh.space/");
+import { siteUrl } from "@/config/site";
 
 export const metadata: Metadata = {
   title: "Nishidh Singh | Full Stack Developer",

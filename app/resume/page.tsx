@@ -1,19 +1,23 @@
 import { Separator } from "@/components/[ui]/Separator";
 import { Container } from "@/components/common/container";
+import { siteUrl } from "@/config/site";
 
 
 export async function generateMetadata() {
-  const siteUrl = new URL("https://www.xnishidh.space/");
+  const canonical = new URL("resume", siteUrl).toString();
   return {
-    metadataBase: new URL("/work", siteUrl),
+    metadataBase: siteUrl,
+    alternates: {
+      canonical,
+    },
     title: "Nishidh Singh work Experience",
     description:
       "This page containes resume of an engineer named Nishidh Singh",
-    url: new URL("/work", siteUrl).toString(),
     openGraph: {
       title: "Work Experience of xNishidh",
       description:
         "This page containes resume of an engineer named Nishidh Singh",
+      url: canonical,
       images: [
         {
           url: "https://raw.githubusercontent.com/nishidhx/xilp/refs/heads/master/public/opengraph/resume.png",

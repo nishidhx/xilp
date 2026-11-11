@@ -4,6 +4,7 @@ import { getBlogPostBySlug, getBlogSlugs } from "@/lib/blog";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import "dotenv/config";
+import { siteUrl } from "@/config/site";
 
 interface BlogPostPageProps {
   params: Promise<{
@@ -33,15 +34,19 @@ export async function generateMetadata({
 
   const { title, description, image } = post.frontmatter;
 
-  const baseUrl = process.env.NEXT_PUBLIC_SERVER_URL ?? "http://localhost:3000";
+  const canonical = new URL(`blog/${slug}`, siteUrl).toString();
 
   return {
-    metadataBase: new URL(baseUrl),
+    metadataBase: siteUrl,
     title,
     description,
+    alternates: {
+      canonical,
+    },
     openGraph: {
       title,
       description,
+      url: canonical,
       images: [image],
       type: 'article',
     },

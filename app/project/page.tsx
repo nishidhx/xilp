@@ -1,6 +1,14 @@
 import { Container } from "@/components/common/container";
 import { ProjectCard } from "@/components/projects/Card";
 import { projects } from "@/data/projects/data";
+import type { Metadata } from "next";
+import { siteUrl } from "@/config/site";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: new URL("project", siteUrl).toString(),
+  },
+};
 
 export default function Project() {
   return (

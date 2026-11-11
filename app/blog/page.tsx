@@ -2,6 +2,7 @@ import { Container } from "@/components/common/container";
 import { ResourcesSection } from "@/components/landing/blog/ResourcesSection";
 import { getBlogs, getBlogPostBySlug } from "@/lib/blog";
 import { Metadata } from "next";
+import { siteUrl } from "@/config/site";
 
 const fetchBlogs = () => {
   const blogs = getBlogs();
@@ -15,8 +16,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const description =
     "Read articles that break down complex topics into approachable chunks for better understanding.";
 
-  const baseOrigin = process.env.NEXT_PUBLIC_SERVER_URL ?? "http://localhost:3000";
-  const canonical = `${baseOrigin.replace(/\/$/, "")}/blog`;
+  const canonical = new URL("blog", siteUrl).toString();
 
   // collect unique keywords from all blog tags
   const allTags = blogs.flatMap((b) => b.tags ?? []);
@@ -29,10 +29,10 @@ export async function generateMetadata(): Promise<Metadata> {
     if (post?.frontmatter?.image) ogImage = post.frontmatter.image;
   }
 
-  const imageUrl = new URL(ogImage, baseOrigin).toString();
+  const imageUrl = new URL(ogImage, siteUrl).toString();
 
   return {
-    metadataBase: new URL(baseOrigin),
+    metadataBase: siteUrl,
     title,
     description,
     keywords,
