@@ -1,58 +1,53 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useSyncExternalStore } from "react";
 import { useLenis } from "lenis/react";
 
 interface LazyBlogContentProps {
     children: React.ReactNode;
 }
 
+// Helper for hydration-safe client detection
+const emptySubscribe = () => () => {};
+const getClientSnapshot = () => true;
+const getServerSnapshot = () => false;
+
 export function LazyBlogContent({ children }: LazyBlogContentProps) {
-    const [mounted, setMounted] = useState(false);
-    const [hasIntersected, setHasIntersected] = useState(false);
+    const mounted = useSyncExternalStore(
+        emptySubscribe,
+        getClientSnapshot,
+        getServerSnapshot
+    );
+    const [hasIntersected, setHasIntersected] = useState(
+        () => typeof window !== "undefined" && !("IntersectionObserver" in window)
+    );
     const containerRef = useRef<HTMLDivElement>(null);
     const lenis = useLenis();
 
     useEffect(() => {
-        // Check if the component is already in or close to the viewport
-        const rect = containerRef.current?.getBoundingClientRect();
-        const isInViewport =
-            rect &&
-            rect.top < window.innerHeight + 300 &&
-            rect.bottom > -300;
-
-        if (isInViewport) {
-            setHasIntersected(true);
-        }
-        setMounted(true);
-
-        if (typeof window === "undefined" || !("IntersectionObserver" in window)) {
-            setHasIntersected(true);
-            return;
-        }
+        if (hasIntersected || !containerRef.current) return;
 
         const observer = new IntersectionObserver(
             ([entry]) => {
+                // Fires asynchronously on mount if already in viewport, or when scrolled near
                 if (entry.isIntersecting) {
                     setHasIntersected(true);
                     observer.disconnect();
                 }
             },
             {
-                rootMargin: "300px 0px", // Pre-load when within 300px of viewport
+                rootMargin: "300px 0px",
             }
         );
 
-        if (containerRef.current && !isInViewport) {
-            observer.observe(containerRef.current);
-        }
+        observer.observe(containerRef.current);
 
         return () => {
             observer.disconnect();
         };
-    }, []);
+    }, [hasIntersected]);
 
-    // Resize Lenis whenever the container height changes (due to unmounting, mounting, or image loads)
+    // Resize Lenis whenever the container height changes
     useEffect(() => {
         if (!lenis || !containerRef.current) return;
 

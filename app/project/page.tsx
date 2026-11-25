@@ -16,7 +16,7 @@ export default function Project() {
       <div className="animate-in-up w-full">
         <h1 className="text-2xl font-bold light:text-black">Projects</h1>
         <p className="text-secondary">
-          A few products and experiments I've shipped.
+          A few products and experiments I&apos;ve shipped.
         </p>
       </div>
       <div className="flex flex-col mb-20 gap-2 w-full mt-10">

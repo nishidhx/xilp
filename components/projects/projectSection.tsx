@@ -11,7 +11,7 @@ export const ProjectSection = () => {
         className="text-lg light:text-black sm:text-xl font-bold animate-in-up"
         style={{ animationDelay: "0s" }}
       >
-        Projects I've built
+        Projects I&apos;ve built
       </h1>
 
       {projectArray.map((project, index) => {

@@ -11,6 +11,5 @@ export const Container = ({
 }) => {
   return <div className={cn("animate-fade-in-blur light:bg-white container mx-auto max-w-2xl px-4", className)} {...props}>
     {children}
-
   </div>;
 };

@@ -1,3 +1,5 @@
+import { OSSContainerProps } from "@/components/oss/showcase-section";
+
 export const projects = [
   {
     id: 32,
@@ -98,5 +100,45 @@ export const projects = [
       "https://github.com/nishidhx/Termianl-Clang/blob/main/main/gui_terminal.cpp",
     demo: "",
     building: false,
+  },
+];
+
+
+export const ossContributions: OSSContainerProps[] = [
+  {
+    pullRequestLink: "https://github.com/numpy/numpy/pull/31626",
+    IssueId: "#31625",
+    domain: ["unfunc", "numpy", "Data Science"],
+    organization: "NumPy",
+    date: "2026-06-13",
+    Issue: "Arrow ligatures incorrectly render generalized universal function signatures in documentation.",
+    solution: "Disabled font ligatures for inline code elements to ensure signatures such as ()->() render correctly. Status: MERGED."
+  },
+  {
+    pullRequestLink: "https://github.com/mozilla/limelight/pull/117",
+    IssueId: "#94",
+    domain: ["Frontend", "UI", "Web Development"],
+    organization: "Mozilla",
+    date: "2025-07-29",
+    Issue: "Infobar button needed support for a link attribute.",
+    solution: "Submitted an implementation adding a link attribute to the Infobar button. Status: CLOSED, NOT MERGED."
+  },
+  {
+    pullRequestLink: "https://github.com/PolyPixels/Holes_Client/pull/43",
+    IssueId: "#40",
+    domain: ["JavaScript", "Game Development", "Multiplayer"],
+    organization: "PolyPixels",
+    date: "2025-06-26",
+    Issue: "Small dirt nodes were not automatically cleared when players walked over them.",
+    solution: "Implemented clearDirtAroundPlayer() in diggingFunctions.js and integrated player movement with the existing socket system for multiplayer synchronization. Status: OPEN."
+  },
+  {
+    pullRequestLink: "https://github.com/feathericons/feathericons.com/pull/825",
+    IssueId: "#824",
+    domain: ["JavaScript", "Frontend", "UI"],
+    organization: "Feather Icons",
+    date: "2024-12-20",
+    Issue: "Unnecessary caret movement occurred in the interface.",
+    solution: "Submitted a fix targeting unnecessary caret movement in the interface. Detailed implementation could not be verified from the available PR description. Status: OPEN."
   },
 ];

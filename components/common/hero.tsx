@@ -26,7 +26,7 @@ export const Hero = () => {
         <div className="relative shrink-0">
           <Image
             className="rounded-full border-2 border-slate-100/10 size-25 hover:-translate-y-2 transition-transform duration-300"
-            src="https://raw.githubusercontent.com/nishidhx/xilp/refs/heads/master/public/nishidh.png"
+            src="https://res.cloudinary.com/ddyqtrozr/image/upload/v1795612134/cropped_circle_image_zjtcfb.png"
             alt="nishidh"
             loading="eager"
             width={100}
