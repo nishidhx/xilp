@@ -40,7 +40,7 @@ export const works = [
   },
   {
     id: "63ca1f04-8850-4973-9b50-7f00443091d3",
-    role: "Software Engineer",
+    role: "Founding Engineer",
     companyName: "Arraylog",
     skills: [
       "Golang",
@@ -64,7 +64,7 @@ export const works = [
   },
   {
     id: "7aaed44c-b7b4-4980-95de-f2c50968ce9e",
-    role: "Software Engineer",
+    role: "Freelance Full stack Engineer",
     companyName: "Qibts Systems",
     skills: ["Java", "Spring Boot", "MySQL", "Git"],
     description: [

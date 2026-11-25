@@ -57,7 +57,7 @@ export default function ResumePage() {
         <div className="mx-auto max-w-2xl rounded-lg p-2 border border-slate-500/10 bg-slate-50/5">
           <iframe
             src={
-              "https://drive.google.com/file/d/1UYaMN5APCKqjla6sAQyFG3uJyB70ZYNm/preview"
+              "https://drive.google.com/file/d/1_Ow6ucKgHLKBc6n-8RknCo7bQSv4Xo2Q/preview"
             }
             className="min-h-screen w-full rounded-lg"
           ></iframe>
